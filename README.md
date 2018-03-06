@@ -1,2 +1,2 @@
 # BTMesh
-A framework to make a mesh network over Bluetooth Low Energy
+A framework to create a mesh network over Bluetooth Low Energy.
