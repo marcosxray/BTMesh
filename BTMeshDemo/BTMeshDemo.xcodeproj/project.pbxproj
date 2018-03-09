@@ -14,6 +14,8 @@
 		8D0231A52052191E007935B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D0231A32052191E007935B2 /* LaunchScreen.storyboard */; };
 		8D0231B02052191E007935B2 /* BTMeshDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0231AF2052191E007935B2 /* BTMeshDemoTests.swift */; };
 		8D0231BB2052191E007935B2 /* BTMeshDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0231BA2052191E007935B2 /* BTMeshDemoUITests.swift */; };
+		8D0231D120521934007935B2 /* BTMesh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D0231CE2052192A007935B2 /* BTMesh.framework */; };
+		8D0231D220521934007935B2 /* BTMesh.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D0231CE2052192A007935B2 /* BTMesh.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +33,42 @@
 			remoteGlobalIDString = 8D0231962052191E007935B2;
 			remoteInfo = BTMeshDemo;
 		};
+		8D0231CD2052192A007935B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D0231C82052192A007935B2 /* BTMesh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D02316520521832007935B2;
+			remoteInfo = BTMesh;
+		};
+		8D0231CF2052192A007935B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D0231C82052192A007935B2 /* BTMesh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D02316E20521832007935B2;
+			remoteInfo = BTMeshTests;
+		};
+		8D0231D320521934007935B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D0231C82052192A007935B2 /* BTMesh.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D02316420521832007935B2;
+			remoteInfo = BTMesh;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8D0231D520521934007935B2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8D0231D220521934007935B2 /* BTMesh.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8D0231972052191E007935B2 /* BTMeshDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTMeshDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +84,7 @@
 		8D0231B62052191E007935B2 /* BTMeshDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BTMeshDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D0231BA2052191E007935B2 /* BTMeshDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMeshDemoUITests.swift; sourceTree = "<group>"; };
 		8D0231BC2052191E007935B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D0231C82052192A007935B2 /* BTMesh.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BTMesh.xcodeproj; path = ../BTMesh/BTMesh.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D0231D120521934007935B2 /* BTMesh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +116,7 @@
 		8D02318E2052191E007935B2 = {
 			isa = PBXGroup;
 			children = (
+				8D0231C82052192A007935B2 /* BTMesh.xcodeproj */,
 				8D0231992052191E007935B2 /* BTMeshDemo */,
 				8D0231AE2052191E007935B2 /* BTMeshDemoTests */,
 				8D0231B92052191E007935B2 /* BTMeshDemoUITests */,
@@ -125,6 +165,15 @@
 			path = BTMeshDemoUITests;
 			sourceTree = "<group>";
 		};
+		8D0231C92052192A007935B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D0231CE2052192A007935B2 /* BTMesh.framework */,
+				8D0231D02052192A007935B2 /* BTMeshTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,10 +184,12 @@
 				8D0231932052191E007935B2 /* Sources */,
 				8D0231942052191E007935B2 /* Frameworks */,
 				8D0231952052191E007935B2 /* Resources */,
+				8D0231D520521934007935B2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8D0231D420521934007935B2 /* PBXTargetDependency */,
 			);
 			name = BTMeshDemo;
 			productName = BTMeshDemo;
@@ -218,6 +269,12 @@
 			mainGroup = 8D02318E2052191E007935B2;
 			productRefGroup = 8D0231982052191E007935B2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8D0231C92052192A007935B2 /* Products */;
+					ProjectRef = 8D0231C82052192A007935B2 /* BTMesh.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8D0231962052191E007935B2 /* BTMeshDemo */,
@@ -226,6 +283,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8D0231CE2052192A007935B2 /* BTMesh.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BTMesh.framework;
+			remoteRef = 8D0231CD2052192A007935B2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8D0231D02052192A007935B2 /* BTMeshTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BTMeshTests.xctest;
+			remoteRef = 8D0231CF2052192A007935B2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D0231952052191E007935B2 /* Resources */ = {
@@ -292,6 +366,11 @@
 			isa = PBXTargetDependency;
 			target = 8D0231962052191E007935B2 /* BTMeshDemo */;
 			targetProxy = 8D0231B72052191E007935B2 /* PBXContainerItemProxy */;
+		};
+		8D0231D420521934007935B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BTMesh;
+			targetProxy = 8D0231D320521934007935B2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
