@@ -1,0 +1,6 @@
+framework module BTMesh {
+  umbrella header "BTMesh.h"
+
+  export *
+  module * { export * }
+}

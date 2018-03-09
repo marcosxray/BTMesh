@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Volumes/Dados/_PROJECTS/BTMesh/BTMesh/DerivedData/BTMesh/Build/Products/Debug-iphonesimulator/BTMesh.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "BTMesh-Swift.h",
+          'external-contents': "/Volumes/Dados/_PROJECTS/BTMesh/BTMesh/DerivedData/BTMesh/Build/Products/Debug-iphonesimulator/BTMesh.framework/Headers/BTMesh-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "BTMesh.h",
+          'external-contents': "/Volumes/Dados/_PROJECTS/BTMesh/BTMesh/BTMesh/BTMesh.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Volumes/Dados/_PROJECTS/BTMesh/BTMesh/DerivedData/BTMesh/Build/Products/Debug-iphonesimulator/BTMesh.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Volumes/Dados/_PROJECTS/BTMesh/BTMesh/DerivedData/BTMesh/Build/Intermediates.noindex/BTMesh.build/Debug-iphonesimulator/BTMesh.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
