@@ -4,3 +4,8 @@ framework module BTMesh {
   export *
   module * { export * }
 }
+
+module BTMesh.Swift {
+    header "BTMesh-Swift.h"
+    requires objc
+}

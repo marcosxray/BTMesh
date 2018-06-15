@@ -4,12 +4,12 @@
   'roots': [
     {
       'type': 'directory',
-      'name': "/Volumes/Dados/_PROJECTS/BTMesh/BTMesh/DerivedData/BTMesh/Build/Products/Debug-iphonesimulator/BTMesh.framework/Headers",
+      'name': "/Volumes/Dados/_PROJECTS/BTMesh/BTMesh/DerivedData/BTMesh/Build/Products/Debug-iphoneos/BTMesh.framework/Headers",
       'contents': [
         {
           'type': 'file',
           'name': "BTMesh-Swift.h",
-          'external-contents': "/Volumes/Dados/_PROJECTS/BTMesh/BTMesh/DerivedData/BTMesh/Build/Products/Debug-iphonesimulator/BTMesh.framework/Headers/BTMesh-Swift.h"
+          'external-contents': "/Volumes/Dados/_PROJECTS/BTMesh/BTMesh/DerivedData/BTMesh/Build/Products/Debug-iphoneos/BTMesh.framework/Headers/BTMesh-Swift.h"
         },
         {
           'type': 'file',
@@ -20,12 +20,12 @@
     },
     {
       'type': 'directory',
-      'name': "/Volumes/Dados/_PROJECTS/BTMesh/BTMesh/DerivedData/BTMesh/Build/Products/Debug-iphonesimulator/BTMesh.framework/Modules",
+      'name': "/Volumes/Dados/_PROJECTS/BTMesh/BTMesh/DerivedData/BTMesh/Build/Products/Debug-iphoneos/BTMesh.framework/Modules",
       'contents': [
         {
           'type': 'file',
           'name': "module.modulemap",
-          'external-contents': "/Volumes/Dados/_PROJECTS/BTMesh/BTMesh/DerivedData/BTMesh/Build/Intermediates.noindex/BTMesh.build/Debug-iphonesimulator/BTMesh.build/module.modulemap"
+          'external-contents': "/Volumes/Dados/_PROJECTS/BTMesh/BTMesh/DerivedData/BTMesh/Build/Intermediates.noindex/BTMesh.build/Debug-iphoneos/BTMesh.build/module.modulemap"
         }
       ]
     }

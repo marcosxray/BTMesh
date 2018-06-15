@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/BTMesh-Swift.h</key>
+		<data>
+		h2kt4pT93zD2hKjSW4Igxszwuq8=
+		</data>
 		<key>Headers/BTMesh.h</key>
 		<data>
 		dqLPqOAzfl/4rcRQOlwKSv5qGVQ=
@@ -12,13 +16,32 @@
 		<data>
 		SFCVd+8V/E4vHvzvCnszEhkHgb0=
 		</data>
+		<key>Modules/BTMesh.swiftmodule/x86_64.swiftdoc</key>
+		<data>
+		DRoJa5e4oKQAvu0aXumhkpYbX0w=
+		</data>
+		<key>Modules/BTMesh.swiftmodule/x86_64.swiftmodule</key>
+		<data>
+		XuLIIEKMPj9oRegBVT5MSpugzwk=
+		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		ox4kM1jP3T0IjmvvgcOh52XogYg=
+		fsQOvagS1Nyj3BYW8iP4WPmYq0w=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Headers/BTMesh-Swift.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			h2kt4pT93zD2hKjSW4Igxszwuq8=
+			</data>
+			<key>hash2</key>
+			<data>
+			VUlJqnPTVv2joQBfZwCbnMTsZEEpZhbbtbU6emmic9g=
+			</data>
+		</dict>
 		<key>Headers/BTMesh.h</key>
 		<dict>
 			<key>hash</key>
@@ -30,15 +53,37 @@
 			CzcsFPRaKBhk9GM/wXu3lzs7bQF0Ja9x9aheYUdWz4I=
 			</data>
 		</dict>
+		<key>Modules/BTMesh.swiftmodule/x86_64.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DRoJa5e4oKQAvu0aXumhkpYbX0w=
+			</data>
+			<key>hash2</key>
+			<data>
+			A1WflULm4cWJWReOXoKR0i31nze9FSUHF9y41qQVUGw=
+			</data>
+		</dict>
+		<key>Modules/BTMesh.swiftmodule/x86_64.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XuLIIEKMPj9oRegBVT5MSpugzwk=
+			</data>
+			<key>hash2</key>
+			<data>
+			E5QAcCjvVadBVwickpzVvODXB99I6A9qgI5ZDlaMNOc=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ox4kM1jP3T0IjmvvgcOh52XogYg=
+			fsQOvagS1Nyj3BYW8iP4WPmYq0w=
 			</data>
 			<key>hash2</key>
 			<data>
-			+IK9So4QKQqhDocWIAMtTd5Ck0tQEs26kD9fgkIGIR0=
+			DOe5CyixP8KWe8TFFBCxTF939W8s8ic90WLOPwvMDXU=
 			</data>
 		</dict>
 	</dict>
