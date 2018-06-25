@@ -39,12 +39,6 @@ class BTRouter {
     
     // MARK: - initialization
     
-//    init(border: BTBorderProtocol, storage: StorageProtocol) {
-//        self.border = border
-//        self.storage = storage
-//        setupRx()
-//    }
-    
     class func config(border: BTBorderProtocol, storage: StorageProtocol){
         BTRouter.config.border = border
         BTRouter.config.storage = storage
@@ -80,7 +74,7 @@ class BTRouter {
             }
         }
         
-        ///
+        //-------------------------------------
 //        border.sendMessage(message: message)
     }
     
@@ -105,21 +99,11 @@ class BTRouter {
         border.rx_routeInformation.subscribe(onNext: { [weak self] items in
             self?.updateUserVisibleNodes(items: items)
         }).disposed(by: bag)
-        
-        
-        
-        
-        
-        
-        
+
         //
         border.rx_message.subscribe(onNext: { [weak self] message in
-//            guard let `self` = self else { return }
             
             guard let weakSelf = self else { return }
-        
-//            weakSelf._rx_message.onNext(message)
-            
             
             if message.receiver.node.identifier == weakSelf.storage.currentUser?.node.identifier {
                 weakSelf._rx_message.onNext(message)
@@ -131,7 +115,6 @@ class BTRouter {
                                              date: message.date,
                                              sender: message.sender,
                                              receiver: message.receiver)
-                ///-----
                 
                 weakSelf.sendMessage(message: stampedMessage)
             }
@@ -144,13 +127,7 @@ class BTRouter {
             
             
         }).disposed(by: bag)
-        
-        
-        
-        
-        
-        
-        
+
         //
         guard let currentUser = storage.currentUser else { return }
         currentUser.node.visibleNodeItems.asObservable().subscribe(onNext: { items in
@@ -207,7 +184,7 @@ class BTRouter {
     
     // ********************
     
-    private func newItemShouldBeAdded(item: BTRouteItem) -> Bool {
+    private func newItemShouldBeAdded(item: BTRouteItem) -> Bool { // or updated
 //        guard let currentUser = storage.currentUser, let currentItems = try? currentUser.node.visibleNodeItems.value() else { return false }
 //        
 //        for currentItem in currentItems {
@@ -229,9 +206,8 @@ class BTRouter {
             
             storage.removeUser(user: user)
             debugPrint("Storage removed: \(user.name)")
-            ///-------------
+
             removeVisibleItemsThrough(node: user.node)
-            ///-------------
         }
     }
     

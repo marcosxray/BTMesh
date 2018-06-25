@@ -15,7 +15,6 @@ class BTSerialization {
     // MARK: - Message
     
     static func serializeMessage(sender: BTNode, receiver: BTNode, message: String) -> Data? {
-        
         let senderDictionary = sender.asDictionary()
         let receiverDictionary = receiver.asDictionary()
         
@@ -29,9 +28,7 @@ class BTSerialization {
     }
     
     static func deserializeMessage(data: Data) -> (sender: BTNode, receiver: BTNode, message: String)? {
-        
         guard let dictionary = data.asDictionary() else { return nil }
-        
         guard let senderDictionary = dictionary[BTKeys.MESSAGE_SENDER_NODE_KEY] as? [String: Any] else { return nil }
         guard let sender = BTNode(dictionary: senderDictionary) else { return nil }
         
@@ -40,7 +37,6 @@ class BTSerialization {
         
         guard let messageData = dictionary[BTKeys.MESSAGE_KEY] as? Data else { return nil }
         guard let message = String(data: messageData, encoding: String.Encoding.utf8) as String? else { return nil }
-        
         return (sender, receiver, message)
     }
     
