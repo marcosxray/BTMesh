@@ -10,27 +10,6 @@ import Foundation
 import CoreBluetooth
 import RxSwift
 
-//// MARK: - Definitions
-//
-//class BTRssiItem: Equatable, Hashable {
-//
-//    var peripheralIdentifier: UUID
-//    var rssi: NSNumber
-//
-//    var hashValue: Int {
-//        return peripheralIdentifier.hashValue
-//    }
-//
-//    init(peripheralIdentifier: UUID, rssi: NSNumber) {
-//        self.peripheralIdentifier = peripheralIdentifier
-//        self.rssi = rssi
-//    }
-//
-//    static func == (lhs: BTRssiItem, rhs: BTRssiItem) -> Bool {
-//        return lhs.peripheralIdentifier == rhs.peripheralIdentifier
-//    }
-//}
-
 // MARK: - Class
 
 class BTCentralManager: NSObject {
@@ -41,8 +20,6 @@ class BTCentralManager: NSObject {
     var peripheralToRemove = PublishSubject<CBPeripheral>()
     var nodeToAdd = PublishSubject<BTNode>()
     var peripheralToUpdateRSSI = PublishSubject<(CBPeripheral, NSNumber)>()
-//    var peripheralToUpdateRouteItems = PublishSubject<(CBPeripheral, [BTRouteItem])>()
-//    var rssiList: Set<BTRssiItem> = []
     
     // MARK: - private properties
     
@@ -50,7 +27,6 @@ class BTCentralManager: NSObject {
     private var _discoveredPeripherals = BehaviorSubject<Set<CBPeripheral>>(value: [])
     private var currentState = BehaviorSubject<CBManagerState>(value: .unknown)
     private var bag = DisposeBag()
-//    private var dataCache: Data?
     
     // MARK: - Initialization
     
@@ -79,25 +55,26 @@ extension BTCentralManager {
     
     // MARK: - Public methods
     
-//    func sendMessage(user: User, message: Message) {
-//        guard let peripherals = try? _discoveredPeripherals.value() else { return }
-//        for peripheral in peripherals {
-//            guard peripheral.identifier == user.node.peripheralId else { continue }
-//            writeMessage(peripheral: peripheral, message: message)
-//        }
-//    }
+    func sendMessage(message: Message, escapeNode: BTNode) {
+        guard let peripherals = try? _discoveredPeripherals.value() else { return }
+        for peripheral in peripherals {
+            guard let node = BTIdentifier.nodeForPeripheralIdentifier(identifier: peripheral.identifier) else { continue }
+            
+            if  escapeNode.identifier == Storage.shared.currentUser?.node.identifier &&
+                message.receiver.node.identifier == node.identifier {
+                writeMessage(peripheral: peripheral, message: message)
+                continue
+            }
+            
+            guard node.identifier == escapeNode.identifier else { continue }
+            writeMessage(peripheral: peripheral, message: message)
+        }
+    }
     
     func callForRssiUpdate() {
         guard let peripherals = try? _discoveredPeripherals.value() else { return }
         for peripheral in peripherals {
             peripheral.readRSSI()
-        }
-    }
-    
-    func sendMessageToAllUsers(message: Message) {
-        guard let peripherals = try? _discoveredPeripherals.value() else { return }
-        for peripheral in peripherals {
-            writeMessage(peripheral: peripheral, message: message)
         }
     }
     
@@ -116,15 +93,6 @@ extension BTCentralManager {
             if characteristic.properties.contains(.read) {
                 peripheral.readValue(for: characteristic)
             }
-//        case BTServiceCharacteristics.Route_notification.UUID:
-//            if characteristic.properties.contains(.notify) {
-//                peripheral.setNotifyValue(true, for: characteristic)
-//            }
-//        case BTServiceCharacteristics.Route_update.UUID:
-//            if characteristic.properties.contains(.read) {
-//                peripheral.readValue(for: characteristic)
-//            }
-//            break
         case BTServiceCharacteristics.Route_update_RX.UUID:
             break
         case BTServiceCharacteristics.Message_RX.UUID:
@@ -142,21 +110,17 @@ extension BTCentralManager {
             guard let node = BTSerialization.deserializeIdentification(data: data) else { return }
             node.updatePeripheral(peripheral: peripheral)
             debugPrint("Found new node: \(node.name)")
+            
+            // remove
+//            guard node.name != "marcos" else { return }
+            // remove
+            
             nodeToAdd.onNext(node)
             peripheral.readRSSI()
         default:
             break
         }
     }
-    
-//    func processVisibleItems(peripheral: CBPeripheral, nodeVisibleItems: [BTRouteItem]) {
-//        peripheralToUpdateRouteItems.onNext((peripheral, nodeVisibleItems))
-//        
-//        print("PERIPHERAL: \(peripheral)")
-//        for item in nodeVisibleItems {
-//            print("VISIBLE ITEM: \(item.asDictionary())")
-//        }
-//    }
     
     // MARK: - Private methods
     
@@ -171,32 +135,19 @@ extension BTCentralManager {
         _discoveredPeripherals.onNext(peripherals)
     }
     
-    //--------------------------------------------------------
     private func writeMessage(peripheral: CBPeripheral, message: Message) {
+        guard let data = BTSerialization.serializeMessage(sender: message.sender.node,
+                                                          receiver: message.receiver.node,
+                                                          message: message.text) else { return }
         
-        guard let data = BTSerialization.serializeMessage(node: message.sender.node, message: message.text) else { return }
         guard let characteristic = getCharacteristic(peripheral: peripheral, serviceId: BTMESH_SERVICE_UUID, characteristicId: BTServiceCharacteristics.Message_RX.UUID) else { return }
         guard characteristic.properties.contains(.write) else { return }
-        
         writeDataOnCharacteristic(data: data, peripheral: peripheral, characteristic: characteristic)
     }
-    //--------------------------------------------------------
-    //----------------------------------------------------------------------------
     
     private func writeVisibleNodesList(peripheral: CBPeripheral, items: [BTRouteItem]) {
         
         guard items.count > 0 else { return }
-        
-        /// fake data ///
-//        var items2: [BTRouteItem] = []
-//        let item1 = BTRouteItem(targetNodeIdentifier: "lala1", escapeNodeIdentifier: "eu mesmo", targetRssi: -1, escapeRssi: -1, targetName: "Chumbalumba")
-//        let item2 = BTRouteItem(targetNodeIdentifier: "lala2", escapeNodeIdentifier: "hahaha", targetRssi: -1, escapeRssi: -1, targetName: "ElCamilo")
-//        let item3 = BTRouteItem(targetNodeIdentifier: "lala3", escapeNodeIdentifier: "mais um ", targetRssi: -1, escapeRssi: -1, targetName: "Tim Maia")
-//        items2.append(contentsOf: [item1, item2, item3])
-        /// fake data ///
-        
-        // chunk !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//        guard let node = BTIdentifier.nodeForPeripheralIdentifier(identifier: peripheral.identifier) else { return }
         guard let node = Storage.shared.currentUser?.node else { return }
         
         guard let data = BTSerialization.serializeRouteInformation(node: node, items: items) else { return }
@@ -220,17 +171,6 @@ extension BTCentralManager {
         } while (offset < length);
     }
     
-    //----------------------------------------------------------------------------
-    
-//    private func rssiForPeripheral(peripheral: CBPeripheral) -> Int? {
-//        for item in rssiList {
-//            if item.peripheralIdentifier == peripheral.identifier {
-//                return item.rssi.intValue
-//            }
-//        }
-//        return nil
-//    }
-    
     private func getCharacteristic(peripheral: CBPeripheral, serviceId: CBUUID, characteristicId: CBUUID) -> CBCharacteristic? {
         guard peripheral.state == .connected, let services = peripheral.services else { return nil }
         for service in services {
@@ -248,7 +188,7 @@ extension BTCentralManager {
         guard let services = peripheral.services else { return }
         for service in services {
             
-            guard let characteristics = service.characteristics else { return }
+            guard let characteristics = service.characteristics else { continue }
             for characteristic in characteristics {
                 
                 let btmeshCharacteristicsIdentifiers = [BTServiceCharacteristics.Identification.UUID,
@@ -293,9 +233,6 @@ extension BTCentralManager: CBCentralManagerDelegate {
         let identifier = peripheral.identifier
         debugPrint("Found -> Name: \(peripheral.name ?? "UNKNOWN NAME"), Identifier (Peripheral): \(identifier)")
         
-//        let rssiItem = BTRssiItem(peripheralIdentifier: identifier, rssi: RSSI)
-//        rssiList.insert(rssiItem)
-        
         guard var peripherals = try? _discoveredPeripherals.value() else { return }
         peripherals.insert(peripheral)
         _discoveredPeripherals.onNext(peripherals)
@@ -339,7 +276,7 @@ extension BTCentralManager: CBCentralManagerDelegate {
 extension BTCentralManager: CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
-        debugPrint("***************************** invalidatedServices: \(invalidatedServices)")
+        debugPrint("Invalidated Services: \(invalidatedServices)")
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
@@ -402,13 +339,6 @@ extension BTCentralManager: CBPeripheralDelegate {
         debugPrint("RSSI: \(RSSI), for peripheral: \(peripheral)")
         peripheralToUpdateRSSI.onNext((peripheral, RSSI))
     }
-    
-//    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
-//        if let error = error {
-//            debugPrint("DID Write value: \(String(describing: characteristic.value)), error: \(error)")
-//            return
-//        }
-//    }
 }
 
 

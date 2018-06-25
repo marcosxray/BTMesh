@@ -13,7 +13,9 @@ import RxSwift
 
 protocol StorageProtocol {
     var currentUser: User? { get set }
-    var users: BehaviorSubject<Set<User>> { get set }
+    var users: BehaviorSubject<Array<User>> { get set }
+    func addUser(user: User)
+    func removeUser(user: User)
 }
 
 // MARK: - Class
@@ -24,7 +26,7 @@ class Storage: StorageProtocol {
     
     static let shared = Storage()
     var currentUser: User?
-    var users = BehaviorSubject<Set<User>>(value: [])
+    var users = BehaviorSubject<Array<User>>(value: [])
     
     // MARK: - Initialiation
     
@@ -34,7 +36,7 @@ class Storage: StorageProtocol {
     
     func addUser(user: User) {
         var users = (try? self.users.value()) ?? []
-        users.insert(user)
+        users.append(user)
         self.users.onNext(users)
     }
     

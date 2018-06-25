@@ -20,11 +20,12 @@ class ChatViewModel {
     
     // MARK: - Private properties
     
-    private let router = BTRouter(border: BTBorder(), storage: Storage.shared)
+    private var router: BTRouter?
     
     // MARK: - Initialization
     
     init() {
+        router = BTRouter.shared
         setupRx()
     }
     
@@ -39,15 +40,40 @@ class ChatViewModel {
 //        }
         // fake
         
-        let message = Message(text: text, sender: Storage.shared.currentUser!, date: Date())
+        guard let users = try? Storage.shared.users.value() else { return }
+        for user in users {
+            sendMessageToUser(receiver: user, text: text, updatedataSoure: false)
+        }
+        
+        // save a copy locally
+        let message = Message(text: text,
+                              date: Date(),
+                              sender: Storage.shared.currentUser!,
+                              receiver: Storage.shared.currentUser!)
         updateDataSource(message: message)
-        router.sendMessageToAllUsers(message: message)
+    }
+    
+    func sendMessageToUser(receiver: User, text: String, updatedataSoure: Bool = true) {
+        let message = Message(text: text,
+                              date: Date(),
+                              sender: Storage.shared.currentUser!,
+                              receiver: receiver)
+        
+        router?.sendMessage(message: message)
+        
+        if updatedataSoure {
+            updateDataSource(message: message)
+        }
     }
     
     // MARK: - Private methods
     
     private func setupRx() {
-        router.rx_message.distinctUntilChanged().subscribe(onNext: { [weak self] message in
+//        router.rx_message.distinctUntilChanged().subscribe(onNext: { [weak self] message in
+//            self?.updateDataSource(message: message)
+//        }).disposed(by: bag)
+        
+        router?.rx_message.subscribe(onNext: { [weak self] message in
             self?.updateDataSource(message: message)
         }).disposed(by: bag)
     }

@@ -15,20 +15,24 @@ class Message {
     // MARK: - Public properties
     
     private(set) var text: String
-    private(set) var sender: User
     private(set) var date: Date
+    private(set) var sender: User
+    private(set) var receiver: User
     
     // MARK: - Initialization
     
-    init(text: String, sender: User, date: Date) {
+    init(text: String, date: Date, sender: User, receiver: User) {
         self.text = text
-        self.sender = sender
         self.date = date
+        self.sender = sender
+        self.receiver = receiver
+        
     }
 }
 
 extension Message: Equatable {
     static func == (lhs: Message, rhs: Message) -> Bool {
-        return lhs.text == rhs.text && lhs.text == rhs.text
+        return lhs.text == rhs.text
+            && lhs.date == rhs.date
     }
 }

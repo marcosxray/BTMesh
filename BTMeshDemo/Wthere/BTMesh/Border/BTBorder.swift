@@ -18,11 +18,9 @@ protocol BTBorderProtocol {
     var nodeToAdd: Observable<BTNode> { get }
     var nodeToRemove: PublishSubject<BTNode> { get set }
     var nodeToUpdateRSSI: PublishSubject<(BTNode, NSNumber)> { get set }
-//    var nodeToUpdateRouteItems: PublishSubject<(BTNode, [BTRouteItem])> { get set }
     
     func start()
-    func sendMessageToAllUsers(message: Message)
-    func sendMessageToUser(message: Message, user: User)
+    func sendMessage(message: Message, escapeNode: BTNode)
     func callForRssiUpdate()
 }
 
@@ -42,7 +40,6 @@ class BTBorder: BTBorderProtocol {
     
     var nodeToAdd: Observable<BTNode> {
         return Observable.of(centralManager.nodeToAdd, peripheralmanager.nodeToAdd).merge()
-//        return centralManager.nodeToAdd.asObservable()
     }
     
     var nodeToRemove = PublishSubject<BTNode>()
@@ -73,16 +70,12 @@ class BTBorder: BTBorderProtocol {
         centralManager.startScanning()
     }
     
-    func sendMessageToAllUsers(message: Message) {
-        centralManager.sendMessageToAllUsers(message: message)
-    }
-    
-    func sendMessageToUser(message: Message, user: User) {
-        centralManager.sendMessageToAllUsers(message: message)
+    func sendMessage(message: Message, escapeNode: BTNode) {
+        centralManager.sendMessage(message: message, escapeNode: escapeNode)
     }
     
     func visibleNodesListDidUpdate() {
-        
+        debugPrint("????????????")
     }
     
     func callForRssiUpdate() {
@@ -96,9 +89,9 @@ class BTBorder: BTBorderProtocol {
     }
     
     private func setupRx() {
-        centralManager.peripheralToRemove.asObservable().subscribe(onNext: { [weak self] peripheral in
+        centralManager.peripheralToRemove.asObservable().subscribe(onNext: { [unowned self] peripheral in
             guard let node = BTIdentifier.nodeForPeripheralIdentifier(identifier: peripheral.identifier) else { return }
-            self?.nodeToRemove.onNext(node)
+            self.nodeToRemove.onNext(node)
         }).disposed(by: bag)
 
         centralManager.peripheralToUpdateRSSI.asObservable().subscribe(onNext: { [weak self] (peripheral, RSSI) in
@@ -106,13 +99,7 @@ class BTBorder: BTBorderProtocol {
             self?.nodeToUpdateRSSI.onNext((node, RSSI))
         }).disposed(by: bag)
         
-//        centralManager.peripheralToUpdateRouteItems.asObservable().subscribe(onNext: { [weak self] (peripheral, items) in
-//            guard let node = BTIdentifier.nodeForPeripheralIdentifier(identifier: peripheral.identifier) else { return }
-//            self?.nodeToUpdateRouteItems.onNext((node, items))
-//        }).disposed(by: bag)
-        
         Storage.shared.currentUser?.node.visibleNodeItems.asObservable().skip(1).subscribe(onNext: { [weak self] items in
-//            self?.peripheralmanager.visibleNodesListDidUpdate(items: items)
             self?.centralManager.sendVisibleNodesListToAllUsers(items: items)
         }).disposed(by: bag)
     }

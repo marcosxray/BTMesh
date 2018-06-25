@@ -38,7 +38,7 @@ class ChatViewController: BaseViewController {
     // MARK: - Actions
     
     @IBAction func sendDidTouch() {
-        if let txt = textField.text {
+        if let txt = textField.text, txt != "" {
             viewModel.sendMessageToAllUsers(text: txt)
             textField.text = nil
             textField.resignFirstResponder()

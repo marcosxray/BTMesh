@@ -55,7 +55,8 @@ class WthereTests: XCTestCase {
         storage.addUser(user: userI)
         
         storage.currentUser = userA
-        let router = BTRouter(border: BTBorder(), storage: storage)
+        BTRouter.config(border: BTBorder(), storage: storage)
+        let router = BTRouter.shared
         
         repeat {
             guard let user = router.escapeForUser(user: userI) else { continue }
@@ -77,12 +78,13 @@ class WthereTests: XCTestCase {
 // MARK: - Mocks
 
 class StorageMock: StorageProtocol {
+    
     var currentUser: User?
-    var users: BehaviorSubject<Set<User>> = BehaviorSubject<Set<User>>(value: [])
+    var users: BehaviorSubject<Array<User>> = BehaviorSubject<Array<User>>(value: [])
     
     func addUser(user: User) {
         var users = (try? self.users.value()) ?? []
-        users.insert(user)
+        users.append(user)
         self.users.onNext(users)
     }
     

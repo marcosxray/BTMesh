@@ -14,20 +14,34 @@ class BTSerialization {
     
     // MARK: - Message
     
-    static func serializeMessage(node: BTNode, message: String) -> Data? {
-        let nodeDictionary = node.asDictionary()
+    static func serializeMessage(sender: BTNode, receiver: BTNode, message: String) -> Data? {
+        
+        let senderDictionary = sender.asDictionary()
+        let receiverDictionary = receiver.asDictionary()
+        
         guard let messageData = message.data(using: .utf8) else { return nil }
-        let dataDictionary: [String: Any] = [BTKeys.NODE_KEY: nodeDictionary, BTKeys.MESSAGE_KEY: messageData]
+        
+        let dataDictionary: [String: Any] = [BTKeys.MESSAGE_SENDER_NODE_KEY: senderDictionary,
+                                             BTKeys.MESSAGE_RECEIVER_NODE_KEY: receiverDictionary,
+                                             BTKeys.MESSAGE_KEY: messageData]
+        
         return Data(withDictionary: dataDictionary)
     }
     
-    static func deserializeMessage(data: Data) -> (node: BTNode, message: String)? {
+    static func deserializeMessage(data: Data) -> (sender: BTNode, receiver: BTNode, message: String)? {
+        
         guard let dictionary = data.asDictionary() else { return nil }
-        guard let nodeDictionary = dictionary[BTKeys.NODE_KEY] as? [String: Any] else { return nil }
-        guard let node = BTNode(dictionary: nodeDictionary) else { return nil }
+        
+        guard let senderDictionary = dictionary[BTKeys.MESSAGE_SENDER_NODE_KEY] as? [String: Any] else { return nil }
+        guard let sender = BTNode(dictionary: senderDictionary) else { return nil }
+        
+        guard let receiverDictionary = dictionary[BTKeys.MESSAGE_RECEIVER_NODE_KEY] as? [String: Any] else { return nil }
+        guard let receiver = BTNode(dictionary: receiverDictionary) else { return nil }
+        
         guard let messageData = dictionary[BTKeys.MESSAGE_KEY] as? Data else { return nil }
         guard let message = String(data: messageData, encoding: String.Encoding.utf8) as String? else { return nil }
-        return (node, message)
+        
+        return (sender, receiver, message)
     }
     
     // MARK: - Identification

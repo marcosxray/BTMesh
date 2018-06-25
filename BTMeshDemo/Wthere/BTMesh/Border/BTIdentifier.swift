@@ -17,6 +17,7 @@ struct BTIdentifier {
     
     static func getDeviceId() -> String {
         guard let idString = UIDevice.current.identifierForVendor?.uuidString else { return "" }
+        debugPrint(">>>> DEVICE IDENTIFIER: \(idString)")
         return idString
     }
     

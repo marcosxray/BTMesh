@@ -12,7 +12,7 @@ import CoreBluetooth
 // MARK: - Definitions
 
 let BTMESH_SERVICE_UUID: CBUUID = CBUUID(string: "06CD7CAA-CA1C-4C9A-9EC1-E60EDE7B3C2E")
-let BTMESH_PAYLOAD: Int = 100
+let BTMESH_PAYLOAD: Int = 200
 let BTMESH_MINIMUM_RSSI: Int = -127
 
 struct BTServiceCharacteristics {
@@ -29,19 +29,6 @@ struct BTServiceCharacteristics {
         static let PERMISSIONS: CBAttributePermissions = .readable
     }
     
-//    struct Route_notification {
-//        static let UUID: CBUUID = CBUUID(string: "724EC896-7525-407E-9516-992F2C1C1997")
-//        static let PROPERTIES: CBCharacteristicProperties = .notify
-//        static let PERMISSIONS: CBAttributePermissions = .readable
-//    }
-    
-//    struct Route_update {
-//        static let UUID: CBUUID = CBUUID(string: "F4021D48-381D-4B8F-A7D9-2DE4ADE47320")
-//        static let PROPERTIES: CBCharacteristicProperties = .read
-//        static let PERMISSIONS: CBAttributePermissions = .readable
-//    }
-    
-    // new
     struct Route_update_RX {
         static let UUID: CBUUID = CBUUID(string: "7773C2AB-F128-40E2-BCE4-9D4F02101030")
         static let PROPERTIES: CBCharacteristicProperties = .write
@@ -61,8 +48,10 @@ enum BTManagerState {
 struct BTKeys {
     static let NODE_NAME = "NAME"
     static let NODE_IDENTIFIER = "IDENTIFIER"
-    
     static let NODE_KEY = "NODE_KEY"
+    
+    static let MESSAGE_SENDER_NODE_KEY = "MESSAGE_SENDER_NODE_KEY"
+    static let MESSAGE_RECEIVER_NODE_KEY = "MESSAGE_RECEIVER_NODE_KEY"
     static let MESSAGE_KEY = "MESSAGE_KEY"
     
     static let TARGET_NODE_KEY = "TARGET_NODE_KEY"

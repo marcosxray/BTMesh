@@ -15,7 +15,7 @@ class UserListViewModel {
     
     // MARK: - Public properties
     
-    var dataSource: BehaviorSubject<Set<User>> {
+    var dataSource: BehaviorSubject<Array<User>> {
         return Storage.shared.users
     }
     
@@ -23,11 +23,13 @@ class UserListViewModel {
     
     // MARK: - Private properties
     
-    private let router = BTRouter(border: BTBorder(), storage: Storage.shared)
+    private var router: BTRouter?
     
     // MARK: - Initialization
     
     init() {
+        BTRouter.config(border: BTBorder(), storage: Storage.shared)
+        router = BTRouter.shared
         setupBLE()
         setupRx()
     }
@@ -35,7 +37,7 @@ class UserListViewModel {
     // MARK: - Private methods
     
     private func setupBLE() {
-        router.start()
+        router?.start()
     }
     
     private func setupRx() {
@@ -44,7 +46,7 @@ class UserListViewModel {
     
     private func updateDataSource(user: User) {
         var users = (try? dataSource.value()) ?? []
-        users.insert(user)
+        users.append(user)
         dataSource.onNext(users)
     }
 }

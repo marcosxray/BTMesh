@@ -27,6 +27,8 @@ class UserListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
         tableView.estimatedRowHeight = 88.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView(frame: .zero)
@@ -69,8 +71,8 @@ extension UserListViewController: UITableViewDataSource {
         
         let cellIdentifier = UserListCell.cellIdentifier
         guard let users = try? viewModel.dataSource.value() else { return UITableViewCell() }
-        let usersArray: [User] = users.map{ $0 }
-        let user = usersArray[indexPath.row]
+        
+        let user = users[indexPath.row]
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? UserListCell else {
             return UITableViewCell()
