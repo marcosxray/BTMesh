@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BTMesh"
-  s.version      = "0.0.1"
+  s.version      = "0.0.5"
   s.summary      = "A framework to create mesh networks over Bluetooth Low Energy (BLE)."
 
   # This description is used to generate tags and improve search results.
@@ -52,8 +52,6 @@ Pod::Spec.new do |s|
   #
 
   s.author             = { "Marcos Borges" => "marcos.xraymob@gmail.com" }
-  # Or just: s.author    = "Marcos Borges"
-  # s.authors            = { "Marcos Borges" => "marcos.xraymob@gmail.com" }
   s.social_media_url   = "http://twitter.com/marcosxray"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -62,15 +60,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  # s.platform     = :ios
   s.platform     = :ios, "11.0"
-
-  #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
-  # s.osx.deployment_target = "10.7"
-  # s.watchos.deployment_target = "2.0"
-  # s.tvos.deployment_target = "9.0"
-
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -78,10 +68,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  # s.source       = { :git => "https://github.com/marcosxray/BTMesh", :tag => "#{s.version}" }
-  # s.source       = { :path => '.' }
-  s.source       = { :git => "https://github.com/marcosxray/BTMesh/tree/master/BTMesh", :tag => "0.0.4" }
-
+  s.source       = { :git => "https://github.com/marcosxray/BTMesh", :tag => "0.0.5" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -94,7 +81,6 @@ Pod::Spec.new do |s|
   s.source_files = "BTMesh", "BTMesh/**/*.{h,m,swift}"
 
   # s.exclude_files = "Classes/Exclude"
-
   # s.public_header_files = "Classes/**/*.h"
 
 
@@ -134,8 +120,8 @@ Pod::Spec.new do |s|
   # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+  
   s.dependency "RxSwift", "~> 4.1.2"
-
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
 
 end
