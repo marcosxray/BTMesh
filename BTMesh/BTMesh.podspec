@@ -79,7 +79,8 @@ Pod::Spec.new do |s|
   #
 
   # s.source       = { :git => "https://github.com/marcosxray/BTMesh", :tag => "#{s.version}" }
-  s.source       = { :path => '.' }
+  # s.source       = { :path => '.' }
+  s.source       = { :git => "URL", :tag => "0.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
