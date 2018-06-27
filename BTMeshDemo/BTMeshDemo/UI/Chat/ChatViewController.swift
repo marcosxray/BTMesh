@@ -32,7 +32,7 @@ class ChatViewController: BaseViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView(frame: .zero)
         
-        self.title = Storage.shared.currentUser?.name
+        self.title = BTStorage.shared.currentUser?.name
         setupRx()
     }
     
@@ -70,7 +70,7 @@ extension ChatViewController: UITableViewDataSource {
         guard let messages = try? viewModel.dataSource.value() else { return UITableViewCell() }
         let message = messages[indexPath.row]
         
-        if message.sender == Storage.shared.currentUser {
+        if message.sender == BTStorage.shared.currentUser {
             cellIdentifier = "chatMineCell"
         }
         

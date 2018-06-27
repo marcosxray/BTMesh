@@ -52,7 +52,7 @@ extension BTCentralManager: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("---> Connected: \(peripheral.identifier)")
         peripheral.delegate = self
-        peripheral.discoverServices([BTMESH_SERVICE_UUID])
+        peripheral.discoverServices([BTServiceProperties.BTMESH_SERVICE_UUID])
         
         // to stop scan and save battery
         //            self.manager.stopScan()
@@ -103,9 +103,9 @@ extension BTCentralManager {
             guard let characteristics = service.characteristics else { continue }
             for characteristic in characteristics {
                 
-                let btmeshCharacteristicsIdentifiers = [BTServiceCharacteristics.Identification.UUID,
-                                                        BTServiceCharacteristics.Route_update_RX.UUID,
-                                                        BTServiceCharacteristics.Message_RX.UUID]
+                let btmeshCharacteristicsIdentifiers = [BTServiceProperties.Characteristics.Identification.UUID,
+                                                        BTServiceProperties.Characteristics.Route_update_RX.UUID,
+                                                        BTServiceProperties.Characteristics.Message_RX.UUID]
                 if btmeshCharacteristicsIdentifiers.contains(characteristic.uuid) &&
                     characteristic.isNotifying {
                     

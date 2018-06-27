@@ -40,7 +40,7 @@ class BTCentralManager: NSObject {
     
     func startScanning() {
         currentState.asObservable().filter{ $0 == .poweredOn }.subscribe(onNext: { [weak self] status in
-            self?.manager.scanForPeripherals(withServices: [BTMESH_SERVICE_UUID], options: nil)
+            self?.manager.scanForPeripherals(withServices: [BTServiceProperties.BTMESH_SERVICE_UUID], options: nil)
             debugPrint("Bluetooth powered on, scanning for peripherals.")
         }).disposed(by: bag)
     }
@@ -56,12 +56,12 @@ extension BTCentralManager {
     
     // MARK: - Public methods
     
-    func sendMessage(message: Message, escapeNode: BTNode) {
+    func sendMessage(message: BTMessage, escapeNode: BTNode) {
         guard let peripherals = try? _discoveredPeripherals.value() else { return }
         for peripheral in peripherals {
             guard let node = BTIdentifier.nodeForPeripheralIdentifier(identifier: peripheral.identifier) else { continue }
             
-            if  escapeNode.identifier == Storage.shared.currentUser?.node.identifier &&
+            if  escapeNode.identifier == BTStorage.shared.currentUser?.node.identifier &&
                 message.receiver.node.identifier == node.identifier {
                 writeMessage(peripheral: peripheral, message: message)
                 continue
@@ -88,12 +88,12 @@ extension BTCentralManager {
 
     // MARK: - Private methods
     
-    private func writeMessage(peripheral: CBPeripheral, message: Message) {
+    private func writeMessage(peripheral: CBPeripheral, message: BTMessage) {
         guard let data = BTSerialization.serializeMessage(sender: message.sender.node,
                                                           receiver: message.receiver.node,
                                                           message: message.text) else { return }
         
-        guard let characteristic = getCharacteristic(peripheral: peripheral, serviceId: BTMESH_SERVICE_UUID, characteristicId: BTServiceCharacteristics.Message_RX.UUID) else { return }
+        guard let characteristic = getCharacteristic(peripheral: peripheral, serviceId: BTServiceProperties.BTMESH_SERVICE_UUID, characteristicId: BTServiceProperties.Characteristics.Message_RX.UUID) else { return }
         guard characteristic.properties.contains(.write) else { return }
         writeDataOnCharacteristic(data: data, peripheral: peripheral, characteristic: characteristic)
     }
@@ -101,10 +101,10 @@ extension BTCentralManager {
     private func writeVisibleNodesList(peripheral: CBPeripheral, items: [BTRouteItem]) {
         
         guard items.count > 0 else { return }
-        guard let node = Storage.shared.currentUser?.node else { return }
+        guard let node = BTStorage.shared.currentUser?.node else { return }
         
         guard let data = BTSerialization.serializeRouteInformation(node: node, items: items) else { return }
-        guard let characteristic = getCharacteristic(peripheral: peripheral, serviceId: BTMESH_SERVICE_UUID, characteristicId: BTServiceCharacteristics.Route_update_RX.UUID) else { return }
+        guard let characteristic = getCharacteristic(peripheral: peripheral, serviceId: BTServiceProperties.BTMESH_SERVICE_UUID, characteristicId: BTServiceProperties.Characteristics.Route_update_RX.UUID) else { return }
         guard characteristic.properties.contains(.write) else { return }
         
         writeDataOnCharacteristic(data: data, peripheral: peripheral, characteristic: characteristic)
@@ -113,7 +113,7 @@ extension BTCentralManager {
     private func writeDataOnCharacteristic(data: Data, peripheral: CBPeripheral, characteristic: CBCharacteristic) {
         
         let length = data.count
-        let chunkSize = BTMESH_PAYLOAD
+        let chunkSize = BTServiceProperties.BTMESH_PAYLOAD
         var offset = 0
         
         repeat {

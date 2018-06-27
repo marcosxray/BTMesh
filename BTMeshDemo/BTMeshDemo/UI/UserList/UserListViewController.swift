@@ -48,7 +48,7 @@ class UserListViewController: BaseViewController {
     
     // MARK: - Private methods
     
-    private func goToUser(user: User) {
+    private func goToUser(user: BTUser) {
         debugPrint("Go to user: \(user.name)")
     }
     
@@ -92,7 +92,7 @@ extension UserListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard let users = try? viewModel.dataSource.value() else { return }
-        let usersArray: [User] = users.map{ $0 }
+        let usersArray: [BTUser] = users.map{ $0 }
         let user = usersArray[indexPath.row]
         goToUser(user: user)
     }

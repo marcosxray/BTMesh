@@ -1,5 +1,5 @@
 //
-//  Message.swift
+//  BTMessage.swift
 //  BTMesh
 //
 //  Created by Marcos Borges on 20/05/2018.
@@ -10,18 +10,18 @@ import Foundation
 
 // MARK: - Class
 
-public class Message {
+public class BTMessage {
     
     // MARK: - Public properties
     
     public private(set) var text: String
     public private(set) var date: Date
-    public private(set) var sender: User
-    public private(set) var receiver: User
+    public private(set) var sender: BTUser
+    public private(set) var receiver: BTUser
     
     // MARK: - Initialization
     
-    public init(text: String, date: Date, sender: User, receiver: User) {
+    public init(text: String, date: Date, sender: BTUser, receiver: BTUser) {
         self.text = text
         self.date = date
         self.sender = sender
@@ -30,8 +30,8 @@ public class Message {
     }
 }
 
-extension Message: Equatable {
-    public static func == (lhs: Message, rhs: Message) -> Bool {
+extension BTMessage: Equatable {
+    public static func == (lhs: BTMessage, rhs: BTMessage) -> Bool {
         return lhs.text == rhs.text
             && lhs.date == rhs.date
     }

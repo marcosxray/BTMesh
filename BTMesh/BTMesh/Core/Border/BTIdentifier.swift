@@ -24,7 +24,7 @@ public struct BTIdentifier {
     // MARK: - Internal methods
     
     static func nodeForPeripheralIdentifier(identifier: UUID) -> BTNode? {
-        let users = (try? Storage.shared.users.value()) ?? []
+        let users = (try? BTStorage.shared.users.value()) ?? []
         for user in users {
             guard let peripheralId = user.node.peripheralId else { continue }
             if identifier == peripheralId {

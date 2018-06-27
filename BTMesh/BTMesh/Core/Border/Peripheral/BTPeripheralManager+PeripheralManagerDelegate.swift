@@ -46,10 +46,10 @@ extension BTPeripheralManager: CBPeripheralManagerDelegate {
             guard let data = request.value else { continue }
             
             switch request.characteristic.uuid {
-            case BTServiceCharacteristics.Message_RX.UUID:
+            case BTServiceProperties.Characteristics.Message_RX.UUID:
                 print("RECEIVED MESSAGE .... : \(data)")
                 messageDidReceive(data: data)
-            case BTServiceCharacteristics.Route_update_RX.UUID:
+            case BTServiceProperties.Characteristics.Route_update_RX.UUID:
                 //                print("RECEIVED ROUTE UPDATE .... : \(data)")
                 routeUpdateDidReceive(data: data)
                 
@@ -87,9 +87,9 @@ extension BTPeripheralManager {
     }
     
     private func rxMessage(info: (sender: BTNode, receiver: BTNode, message: String)) {
-        let sender = User(node: info.sender)
-        let receiver = User(node: info.receiver)
-        let message = Message(text: info.message, date: Date(), sender: sender, receiver: receiver)
+        let sender = BTUser(node: info.sender)
+        let receiver = BTUser(node: info.receiver)
+        let message = BTMessage(text: info.message, date: Date(), sender: sender, receiver: receiver)
         rx_message.onNext(message)
     }
     
@@ -115,7 +115,7 @@ extension BTPeripheralManager {
     
     private func rxRouteInformation(node: BTNode, items: [BTRouteItem]) {
         
-        guard let currentVisibleItems = try? Storage.shared.currentUser?.node.visibleNodeItems.value() else { return }
+        guard let currentVisibleItems = try? BTStorage.shared.currentUser?.node.visibleNodeItems.value() else { return }
         guard let visibleItems = currentVisibleItems else { return }
         var modifiedItems: [BTRouteItem] = []
         
@@ -124,7 +124,7 @@ extension BTPeripheralManager {
             item.targetRssi = item.targetRssi + item.escapeRssi
             item.escapeRssi = node.RSSI
             
-            if  item.targetNodeIdentifier != Storage.shared.currentUser?.node.identifier &&
+            if  item.targetNodeIdentifier != BTStorage.shared.currentUser?.node.identifier &&
                 item.targetNodeIdentifier != item.escapeNodeIdentifier {
                 
                 if let existingItem = itemForTargetIdentifier(identifier: item.targetNodeIdentifier, items: visibleItems) {
@@ -140,7 +140,7 @@ extension BTPeripheralManager {
                     
                     if !(visibleItems.contains(item)) {
                         let newNode = BTNode(name: item.targetName, identifier: item.targetNodeIdentifier)
-                        newNode.RSSI = BTMESH_MINIMUM_RSSI
+                        newNode.RSSI = BTServiceProperties.BTMESH_MINIMUM_RSSI
                         nodeToAdd.onNext(newNode)
                         
                         modifiedItems.append(item)

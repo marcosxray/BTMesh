@@ -16,7 +16,7 @@ class ChatViewModel {
     
     // MARK: - Public properties
     
-    var dataSource = BehaviorSubject<[Message]>(value: [])
+    var dataSource = BehaviorSubject<[BTMessage]>(value: [])
     var bag = DisposeBag()
     
     // MARK: - Private properties
@@ -34,30 +34,23 @@ class ChatViewModel {
     
     func sendMessageToAllUsers(text: String) {
         
-        // fake
-//        var txt = ""
-//        for _ in 0...10 {
-//            txt += "\(arc4random())"
-//        }
-        // fake
-        
-        guard let users = try? Storage.shared.users.value() else { return }
+        guard let users = try? BTStorage.shared.users.value() else { return }
         for user in users {
             sendMessageToUser(receiver: user, text: text, updatedataSoure: false)
         }
         
         // save a copy locally
-        let message = Message(text: text,
+        let message = BTMessage(text: text,
                               date: Date(),
-                              sender: Storage.shared.currentUser!,
-                              receiver: Storage.shared.currentUser!)
+                              sender: BTStorage.shared.currentUser!,
+                              receiver: BTStorage.shared.currentUser!)
         updateDataSource(message: message)
     }
     
-    func sendMessageToUser(receiver: User, text: String, updatedataSoure: Bool = true) {
-        let message = Message(text: text,
+    func sendMessageToUser(receiver: BTUser, text: String, updatedataSoure: Bool = true) {
+        let message = BTMessage(text: text,
                               date: Date(),
-                              sender: Storage.shared.currentUser!,
+                              sender: BTStorage.shared.currentUser!,
                               receiver: receiver)
         
         router?.sendMessage(message: message)
@@ -70,16 +63,13 @@ class ChatViewModel {
     // MARK: - Private methods
     
     private func setupRx() {
-//        router.rx_message.distinctUntilChanged().subscribe(onNext: { [weak self] message in
-//            self?.updateDataSource(message: message)
-//        }).disposed(by: bag)
         
         router?.rx_message.subscribe(onNext: { [weak self] message in
             self?.updateDataSource(message: message)
         }).disposed(by: bag)
     }
     
-    private func updateDataSource(message: Message) {
+    private func updateDataSource(message: BTMessage) {
         var messages = (try? dataSource.value()) ?? []
         messages.append(message)
         dataSource.onNext(messages)

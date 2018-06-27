@@ -151,12 +151,9 @@
 		7579234020E3B6A30054ACA6 /* BTMeshDemo */ = {
 			isa = PBXGroup;
 			children = (
+				7579238520E3E3720054ACA6 /* Resources */,
 				7579237120E3B75C0054ACA6 /* UI */,
-				7579236F20E3B7550054ACA6 /* ViewController.swift */,
 				7579234120E3B6A30054ACA6 /* AppDelegate.swift */,
-				7579234520E3B6A30054ACA6 /* Main.storyboard */,
-				7579234820E3B6A40054ACA6 /* Assets.xcassets */,
-				7579234A20E3B6A40054ACA6 /* LaunchScreen.storyboard */,
 				7579234D20E3B6A40054ACA6 /* Info.plist */,
 			);
 			path = BTMeshDemo;
@@ -183,9 +180,10 @@
 		7579237120E3B75C0054ACA6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7579236F20E3B7550054ACA6 /* ViewController.swift */,
 				7579237220E3B75C0054ACA6 /* BaseClasses */,
-				7579237420E3B75C0054ACA6 /* Chat */,
 				7579237820E3B75C0054ACA6 /* UserList */,
+				7579237420E3B75C0054ACA6 /* Chat */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -216,6 +214,16 @@
 				7579237B20E3B75C0054ACA6 /* UserListViewController.swift */,
 			);
 			path = UserList;
+			sourceTree = "<group>";
+		};
+		7579238520E3E3720054ACA6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7579234820E3B6A40054ACA6 /* Assets.xcassets */,
+				7579234520E3B6A30054ACA6 /* Main.storyboard */,
+				7579234A20E3B6A40054ACA6 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -695,7 +703,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 254PSF9W29;
 				INFOPLIST_FILE = BTMeshDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xraysoft.btmesh.BTMeshDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -711,7 +723,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 254PSF9W29;
 				INFOPLIST_FILE = BTMeshDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xraysoft.btmesh.BTMeshDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -728,7 +744,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 254PSF9W29;
 				INFOPLIST_FILE = BTMeshDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xraysoft.btmesh.BTMeshDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -746,7 +766,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 254PSF9W29;
 				INFOPLIST_FILE = BTMeshDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xraysoft.btmesh.BTMeshDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -763,7 +787,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 254PSF9W29;
 				INFOPLIST_FILE = BTMeshDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xraysoft.btmesh.BTMeshDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -780,7 +808,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 254PSF9W29;
 				INFOPLIST_FILE = BTMeshDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xraysoft.btmesh.BTMeshDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

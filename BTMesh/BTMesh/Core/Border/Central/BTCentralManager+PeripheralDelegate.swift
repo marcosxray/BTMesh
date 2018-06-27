@@ -30,12 +30,12 @@ extension BTCentralManager: CBPeripheralDelegate {
         
         for service in services {
             
-            guard service.uuid == BTMESH_SERVICE_UUID else { continue }
+            guard service.uuid == BTServiceProperties.BTMESH_SERVICE_UUID else { continue }
             debugPrint("Service found: \(service)")
             
-            peripheral.discoverCharacteristics([BTServiceCharacteristics.Message_RX.UUID,
-                                                BTServiceCharacteristics.Identification.UUID,
-                                                BTServiceCharacteristics.Route_update_RX.UUID
+            peripheral.discoverCharacteristics([BTServiceProperties.Characteristics.Message_RX.UUID,
+                                                BTServiceProperties.Characteristics.Identification.UUID,
+                                                BTServiceProperties.Characteristics.Route_update_RX.UUID
                 ], for: service)
         }
     }
@@ -90,13 +90,13 @@ extension BTCentralManager {
     
     private func processCharacteristic(characteristic: CBCharacteristic, for peripheral: CBPeripheral) {
         switch characteristic.uuid {
-        case BTServiceCharacteristics.Identification.UUID:
+        case BTServiceProperties.Characteristics.Identification.UUID:
             if characteristic.properties.contains(.read) {
                 peripheral.readValue(for: characteristic)
             }
-        case BTServiceCharacteristics.Route_update_RX.UUID:
+        case BTServiceProperties.Characteristics.Route_update_RX.UUID:
             break
-        case BTServiceCharacteristics.Message_RX.UUID:
+        case BTServiceProperties.Characteristics.Message_RX.UUID:
             break
         default:
             break
@@ -107,7 +107,7 @@ extension BTCentralManager {
         guard let data = characteristic.value else { return }
         
         switch characteristic.uuid {
-        case BTServiceCharacteristics.Identification.UUID:
+        case BTServiceProperties.Characteristics.Identification.UUID:
             guard let node = BTSerialization.deserializeIdentification(data: data) else { return }
             node.updatePeripheral(peripheral: peripheral)
             debugPrint("Found new node: \(node.name)")

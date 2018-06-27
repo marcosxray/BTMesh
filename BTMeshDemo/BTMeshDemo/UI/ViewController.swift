@@ -24,15 +24,17 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func startDidTouch() {
-        let storage = Storage.shared
+        let storage = BTStorage.shared
         var name = "Unknown name"
         
         if let userName = nateTextField.text, userName != "" {
             name = userName
         }
         
-        let node = BTNode(name: name, identifier: BTIdentifier.getDeviceId())
-        storage.currentUser = User(node: node)
+        let node = BTNode(name: name,
+                          identifier: BTIdentifier.getDeviceId())
+        
+        storage.currentUser = BTUser(node: node)
         loadNextScreen()
     }
     

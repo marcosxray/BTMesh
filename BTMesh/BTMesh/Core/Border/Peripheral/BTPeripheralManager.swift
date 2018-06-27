@@ -20,7 +20,7 @@ class BTPeripheralManager: NSObject {
     
     // MARK: - Internal properties
     
-    var rx_message = PublishSubject<Message>()
+    var rx_message = PublishSubject<BTMessage>()
     var rx_routeInformation = PublishSubject<[BTRouteItem]>()
     var nodeToAdd = PublishSubject<BTNode>()
     
@@ -74,7 +74,7 @@ class BTPeripheralManager: NSObject {
     // MARK: - Private methods
     
     private func createService() -> CBMutableService {
-        let btmeshService = CBMutableService(type: BTMESH_SERVICE_UUID, primary: true)
+        let btmeshService = CBMutableService(type: BTServiceProperties.BTMESH_SERVICE_UUID, primary: true)
         
         let rxMessageCharacteristic = createRXMessageCharacteristic()
         let rxRouteUpdateCharacteristic = createRXRouteUpdateCharacteristic()
@@ -91,29 +91,29 @@ class BTPeripheralManager: NSObject {
     }
     
     private func createRXMessageCharacteristic() -> CBMutableCharacteristic {
-        return CBMutableCharacteristic(type: BTServiceCharacteristics.Message_RX.UUID,
-                                       properties: BTServiceCharacteristics.Message_RX.PROPERTIES,
+        return CBMutableCharacteristic(type: BTServiceProperties.Characteristics.Message_RX.UUID,
+                                       properties: BTServiceProperties.Characteristics.Message_RX.PROPERTIES,
                                        value: nil,
-                                       permissions: BTServiceCharacteristics.Message_RX.PERMISSIONS)
+                                       permissions: BTServiceProperties.Characteristics.Message_RX.PERMISSIONS)
     }
     
     private func createIdentificationCharacteristic(for node: BTNode) -> CBMutableCharacteristic {
         let identificationdData = BTSerialization.serializeIdentification(node: node)
-        return CBMutableCharacteristic(type: BTServiceCharacteristics.Identification.UUID,
-                                       properties: BTServiceCharacteristics.Identification.PROPERTIES,
+        return CBMutableCharacteristic(type: BTServiceProperties.Characteristics.Identification.UUID,
+                                       properties: BTServiceProperties.Characteristics.Identification.PROPERTIES,
                                        value: identificationdData,
-                                       permissions: BTServiceCharacteristics.Identification.PERMISSIONS)
+                                       permissions: BTServiceProperties.Characteristics.Identification.PERMISSIONS)
     }
     
     private func createRXRouteUpdateCharacteristic() -> CBMutableCharacteristic {
-        return CBMutableCharacteristic(type: BTServiceCharacteristics.Route_update_RX.UUID,
-                                       properties: BTServiceCharacteristics.Route_update_RX.PROPERTIES,
+        return CBMutableCharacteristic(type: BTServiceProperties.Characteristics.Route_update_RX.UUID,
+                                       properties: BTServiceProperties.Characteristics.Route_update_RX.PROPERTIES,
                                        value: nil,
-                                       permissions: BTServiceCharacteristics.Route_update_RX.PERMISSIONS)
+                                       permissions: BTServiceProperties.Characteristics.Route_update_RX.PERMISSIONS)
     }
     
     private func createAdvertisementData() -> [String: Any] {
-        return [CBAdvertisementDataServiceUUIDsKey:[BTMESH_SERVICE_UUID],
+        return [CBAdvertisementDataServiceUUIDsKey:[BTServiceProperties.BTMESH_SERVICE_UUID],
                                         CBAdvertisementDataLocalNameKey: node?.name ?? BTIdentifier.getDeviceId()]
     }
 }

@@ -13,14 +13,14 @@ import RxSwift
 // MARK: - Protocol
 
 public protocol BTBorderProtocol {
-    var rx_message: Observable<Message> { get }
+    var rx_message: Observable<BTMessage> { get }
     var rx_routeInformation: Observable<[BTRouteItem]> { get }
     var nodeToAdd: Observable<BTNode> { get }
     var nodeToRemove: PublishSubject<BTNode> { get set }
     var nodeToUpdateRSSI: PublishSubject<(BTNode, NSNumber)> { get set }
     
     func start()
-    func sendMessage(message: Message, escapeNode: BTNode)
+    func sendMessage(message: BTMessage, escapeNode: BTNode)
     func callForRssiUpdate()
 }
 
@@ -30,7 +30,7 @@ public class BTBorder: BTBorderProtocol {
     
     // MARK: - Public properties
     
-    public var rx_message: Observable<Message> {
+    public var rx_message: Observable<BTMessage> {
         return peripheralmanager.rx_message.asObservable()
     }
     
@@ -66,14 +66,14 @@ public class BTBorder: BTBorderProtocol {
     public func start() {
         cleanUp()
         
-        guard let node = Storage.shared.currentUser?.node else { return }
+        guard let node = BTStorage.shared.currentUser?.node else { return }
         peripheralmanager.configure(node: node)
         
         peripheralmanager.startAdvertising()
         centralManager.startScanning()
     }
     
-    public func sendMessage(message: Message, escapeNode: BTNode) {
+    public func sendMessage(message: BTMessage, escapeNode: BTNode) {
         centralManager.sendMessage(message: message, escapeNode: escapeNode)
     }
     
@@ -104,7 +104,7 @@ public class BTBorder: BTBorderProtocol {
             self?.nodeToUpdateRSSI.onNext((node, RSSI))
         }).disposed(by: bag)
         
-        Storage.shared.currentUser?.node.visibleNodeItems.asObservable().skip(1).subscribe(onNext: { [weak self] items in
+        BTStorage.shared.currentUser?.node.visibleNodeItems.asObservable().skip(1).subscribe(onNext: { [weak self] items in
             self?.centralManager.sendVisibleNodesListToAllUsers(items: items)
         }).disposed(by: bag)
     }

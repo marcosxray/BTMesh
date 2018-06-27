@@ -11,28 +11,29 @@ import CoreBluetooth
 
 // MARK: - Definitions
 
-let BTMESH_SERVICE_UUID: CBUUID = CBUUID(string: "06CD7CAA-CA1C-4C9A-9EC1-E60EDE7B3C2E")
-let BTMESH_PAYLOAD: Int = 200
-let BTMESH_MINIMUM_RSSI: Int = -127
-
-struct BTServiceCharacteristics {
+struct BTServiceProperties {
+    static var BTMESH_SERVICE_UUID: CBUUID = CBUUID(string: "00000000-0000-0000-0000-000000000000")
+    static var BTMESH_PAYLOAD: Int = 200
+    static let BTMESH_MINIMUM_RSSI: Int = -127
     
-    struct Message_RX {
-        static let UUID: CBUUID = CBUUID(string: "3B7C432B-5D97-4C82-BF45-B6B8C097EF9C")
-        static let PROPERTIES: CBCharacteristicProperties = .write
-        static let PERMISSIONS: CBAttributePermissions = .writeable
-    }
-    
-    struct Identification {
-        static let UUID: CBUUID = CBUUID(string: "4A4C566D-AAD3-47C8-A2C8-E8CD2BDDBCAF")
-        static let PROPERTIES: CBCharacteristicProperties = .read
-        static let PERMISSIONS: CBAttributePermissions = .readable
-    }
-    
-    struct Route_update_RX {
-        static let UUID: CBUUID = CBUUID(string: "7773C2AB-F128-40E2-BCE4-9D4F02101030")
-        static let PROPERTIES: CBCharacteristicProperties = .write
-        static let PERMISSIONS: CBAttributePermissions = .writeable
+    struct Characteristics {
+        struct Message_RX {
+            static var UUID: CBUUID = CBUUID(string: "00000000-0000-0000-0000-000000000000")
+            static let PROPERTIES: CBCharacteristicProperties = .write
+            static let PERMISSIONS: CBAttributePermissions = .writeable
+        }
+        
+        struct Identification {
+            static var UUID: CBUUID = CBUUID(string: "00000000-0000-0000-0000-000000000000")
+            static let PROPERTIES: CBCharacteristicProperties = .read
+            static let PERMISSIONS: CBAttributePermissions = .readable
+        }
+        
+        struct Route_update_RX {
+            static var UUID: CBUUID = CBUUID(string: "00000000-0000-0000-0000-000000000000")
+            static let PROPERTIES: CBCharacteristicProperties = .write
+            static let PERMISSIONS: CBAttributePermissions = .writeable
+        }
     }
 }
 

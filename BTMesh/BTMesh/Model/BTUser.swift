@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  BTUser.swift
 //  BTMesh
 //
 //  Created by Marcos Borges on 01/06/2018.
@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Class
 
-public class User {
+public class BTUser {
     
     // MARK: - Public properties
     
@@ -28,13 +28,13 @@ public class User {
 
 // MARK: - Extensions
 
-extension User: Equatable {
-    public static func == (lhs: User, rhs: User) -> Bool {
+extension BTUser: Equatable {
+    public static func == (lhs: BTUser, rhs: BTUser) -> Bool {
         return lhs.node == rhs.node
     }
 }
 
-extension User: Hashable {
+extension BTUser: Hashable {
     public var hashValue: Int {
         guard let identifier = UUID(uuidString: node.identifier) else { return Int(arc4random()) }
         return identifier.hashValue
