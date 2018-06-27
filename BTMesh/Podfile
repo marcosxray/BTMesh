@@ -1,20 +1,15 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'BTMeshDemo' do
+target 'BTMesh' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for BTMeshDemo
   pod 'RxSwift'
-  pod 'BTMesh', :path => '../BTMesh'
 
-  target 'BTMeshDemoTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  # Pods for BTMesh
 
-  target 'BTMeshDemoUITests' do
+  target 'BTMeshTests' do
     inherit! :search_paths
     # Pods for testing
   end

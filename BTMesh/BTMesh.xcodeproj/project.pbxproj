@@ -7,14 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		751D0C7020E2A7D400CE714B /* BTNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6020E2A7D400CE714B /* BTNode.swift */; };
+		751D0C7120E2A7D400CE714B /* BTIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6220E2A7D400CE714B /* BTIdentifier.swift */; };
+		751D0C7220E2A7D400CE714B /* BTSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6320E2A7D400CE714B /* BTSerialization.swift */; };
+		751D0C7320E2A7D400CE714B /* BTPeripheralManager+PeripheralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6520E2A7D400CE714B /* BTPeripheralManager+PeripheralManagerDelegate.swift */; };
+		751D0C7420E2A7D400CE714B /* BTPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6620E2A7D400CE714B /* BTPeripheralManager.swift */; };
+		751D0C7520E2A7D400CE714B /* BTCentralManager+CentralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6820E2A7D400CE714B /* BTCentralManager+CentralManagerDelegate.swift */; };
+		751D0C7620E2A7D400CE714B /* BTCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6920E2A7D400CE714B /* BTCentralManager.swift */; };
+		751D0C7720E2A7D400CE714B /* BTCentralManager+PeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6A20E2A7D400CE714B /* BTCentralManager+PeripheralDelegate.swift */; };
+		751D0C7820E2A7D400CE714B /* BTBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6B20E2A7D400CE714B /* BTBorder.swift */; };
+		751D0C7920E2A7D400CE714B /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6C20E2A7D400CE714B /* BTConstants.swift */; };
+		751D0C7A20E2A7D400CE714B /* BTRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6E20E2A7D400CE714B /* BTRouter.swift */; };
+		751D0C7B20E2A7D400CE714B /* BTRouteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6F20E2A7D400CE714B /* BTRouteItem.swift */; };
+		751D0C8020E2A94700CE714B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C7D20E2A94700CE714B /* Message.swift */; };
+		751D0C8120E2A94700CE714B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C7E20E2A94700CE714B /* User.swift */; };
+		751D0C8220E2A94700CE714B /* Sorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C7F20E2A94700CE714B /* Sorage.swift */; };
+		751D0C8620E2A97300CE714B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C8420E2A97300CE714B /* Date+Extensions.swift */; };
+		751D0C8720E2A97300CE714B /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C8520E2A97300CE714B /* Data+Extensions.swift */; };
+		751D0C8D20E2B8B900CE714B /* BTRouterConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C8C20E2B8B900CE714B /* BTRouterConfig.swift */; };
 		8D02316F20521832007935B2 /* BTMesh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D02316520521832007935B2 /* BTMesh.framework */; };
 		8D02317420521832007935B2 /* BTMeshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D02317320521832007935B2 /* BTMeshTests.swift */; };
 		8D02317620521832007935B2 /* BTMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D02316820521832007935B2 /* BTMesh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8D12B0C920545BB1006E8241 /* BTBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12B0C820545BB1006E8241 /* BTBorder.swift */; };
-		8D12B0D220548717006E8241 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D12B0CE20548717006E8241 /* RxSwift.framework */; };
-		8D12B0D320548717006E8241 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D12B0CF20548717006E8241 /* RxBlocking.framework */; };
-		8D12B0D420548717006E8241 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D12B0D020548717006E8241 /* RxTest.framework */; };
-		8D12B0D520548717006E8241 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D12B0D120548717006E8241 /* RxCocoa.framework */; };
+		9D9323287FABF5D671FA86FE /* Pods_BTMesh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B89FE4F827A2764F612B3B /* Pods_BTMesh.framework */; };
+		C60732A29CE1EDF1980C1836 /* Pods_BTMeshTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED31BF75E5B2428F6D0900A /* Pods_BTMeshTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,17 +43,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F81E23CFF6E766FC307013F /* Pods-BTMesh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTMesh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BTMesh/Pods-BTMesh.debug.xcconfig"; sourceTree = "<group>"; };
+		12B89FE4F827A2764F612B3B /* Pods_BTMesh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BTMesh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		161EC2FC5CA564F73EC0D0AA /* Pods-BTMeshTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTMeshTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BTMeshTests/Pods-BTMeshTests.release.xcconfig"; sourceTree = "<group>"; };
+		751D0C6020E2A7D400CE714B /* BTNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTNode.swift; sourceTree = "<group>"; };
+		751D0C6220E2A7D400CE714B /* BTIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTIdentifier.swift; sourceTree = "<group>"; };
+		751D0C6320E2A7D400CE714B /* BTSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTSerialization.swift; sourceTree = "<group>"; };
+		751D0C6520E2A7D400CE714B /* BTPeripheralManager+PeripheralManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BTPeripheralManager+PeripheralManagerDelegate.swift"; sourceTree = "<group>"; };
+		751D0C6620E2A7D400CE714B /* BTPeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTPeripheralManager.swift; sourceTree = "<group>"; };
+		751D0C6820E2A7D400CE714B /* BTCentralManager+CentralManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BTCentralManager+CentralManagerDelegate.swift"; sourceTree = "<group>"; };
+		751D0C6920E2A7D400CE714B /* BTCentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCentralManager.swift; sourceTree = "<group>"; };
+		751D0C6A20E2A7D400CE714B /* BTCentralManager+PeripheralDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BTCentralManager+PeripheralDelegate.swift"; sourceTree = "<group>"; };
+		751D0C6B20E2A7D400CE714B /* BTBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTBorder.swift; sourceTree = "<group>"; };
+		751D0C6C20E2A7D400CE714B /* BTConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConstants.swift; sourceTree = "<group>"; };
+		751D0C6E20E2A7D400CE714B /* BTRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTRouter.swift; sourceTree = "<group>"; };
+		751D0C6F20E2A7D400CE714B /* BTRouteItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTRouteItem.swift; sourceTree = "<group>"; };
+		751D0C7D20E2A94700CE714B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		751D0C7E20E2A94700CE714B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		751D0C7F20E2A94700CE714B /* Sorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sorage.swift; sourceTree = "<group>"; };
+		751D0C8420E2A97300CE714B /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		751D0C8520E2A97300CE714B /* Data+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
+		751D0C8C20E2B8B900CE714B /* BTRouterConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTRouterConfig.swift; sourceTree = "<group>"; };
 		8D02316520521832007935B2 /* BTMesh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BTMesh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D02316820521832007935B2 /* BTMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTMesh.h; sourceTree = "<group>"; };
 		8D02316920521832007935B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D02316E20521832007935B2 /* BTMeshTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BTMeshTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D02317320521832007935B2 /* BTMeshTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMeshTests.swift; sourceTree = "<group>"; };
 		8D02317520521832007935B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8D12B0C820545BB1006E8241 /* BTBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTBorder.swift; sourceTree = "<group>"; };
-		8D12B0CE20548717006E8241 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		8D12B0CF20548717006E8241 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		8D12B0D020548717006E8241 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
-		8D12B0D120548717006E8241 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		9139663C4020374B29C07D04 /* Pods-BTMeshTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTMeshTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BTMeshTests/Pods-BTMeshTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BED31BF75E5B2428F6D0900A /* Pods_BTMeshTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BTMeshTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1CC26A64B9352CB8E62E319 /* Pods-BTMesh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTMesh.release.xcconfig"; path = "Pods/Target Support Files/Pods-BTMesh/Pods-BTMesh.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D12B0D220548717006E8241 /* RxSwift.framework in Frameworks */,
-				8D12B0D320548717006E8241 /* RxBlocking.framework in Frameworks */,
-				8D12B0D420548717006E8241 /* RxTest.framework in Frameworks */,
-				8D12B0D520548717006E8241 /* RxCocoa.framework in Frameworks */,
+				9D9323287FABF5D671FA86FE /* Pods_BTMesh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +89,73 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D02316F20521832007935B2 /* BTMesh.framework in Frameworks */,
+				C60732A29CE1EDF1980C1836 /* Pods_BTMeshTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		751D0C6120E2A7D400CE714B /* Border */ = {
+			isa = PBXGroup;
+			children = (
+				751D0C6220E2A7D400CE714B /* BTIdentifier.swift */,
+				751D0C6320E2A7D400CE714B /* BTSerialization.swift */,
+				751D0C6420E2A7D400CE714B /* Peripheral */,
+				751D0C6720E2A7D400CE714B /* Central */,
+				751D0C6B20E2A7D400CE714B /* BTBorder.swift */,
+			);
+			path = Border;
+			sourceTree = "<group>";
+		};
+		751D0C6420E2A7D400CE714B /* Peripheral */ = {
+			isa = PBXGroup;
+			children = (
+				751D0C6620E2A7D400CE714B /* BTPeripheralManager.swift */,
+				751D0C6520E2A7D400CE714B /* BTPeripheralManager+PeripheralManagerDelegate.swift */,
+			);
+			path = Peripheral;
+			sourceTree = "<group>";
+		};
+		751D0C6720E2A7D400CE714B /* Central */ = {
+			isa = PBXGroup;
+			children = (
+				751D0C6920E2A7D400CE714B /* BTCentralManager.swift */,
+				751D0C6820E2A7D400CE714B /* BTCentralManager+CentralManagerDelegate.swift */,
+				751D0C6A20E2A7D400CE714B /* BTCentralManager+PeripheralDelegate.swift */,
+			);
+			path = Central;
+			sourceTree = "<group>";
+		};
+		751D0C6D20E2A7D400CE714B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				751D0C6E20E2A7D400CE714B /* BTRouter.swift */,
+				751D0C8C20E2B8B900CE714B /* BTRouterConfig.swift */,
+				751D0C6F20E2A7D400CE714B /* BTRouteItem.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		751D0C7C20E2A94700CE714B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				751D0C7D20E2A94700CE714B /* Message.swift */,
+				751D0C7E20E2A94700CE714B /* User.swift */,
+				751D0C7F20E2A94700CE714B /* Sorage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		751D0C8320E2A97300CE714B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				751D0C8420E2A97300CE714B /* Date+Extensions.swift */,
+				751D0C8520E2A97300CE714B /* Data+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8D02315B20521832007935B2 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +163,7 @@
 				8D02317220521832007935B2 /* BTMeshTests */,
 				8D02316620521832007935B2 /* Products */,
 				8D12B0CD20548716006E8241 /* Frameworks */,
+				C3A0B1E3610657C2E669058E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				8D12B0C720545B88006E8241 /* Core */,
+				751D0C7C20E2A94700CE714B /* Model */,
+				751D0C8320E2A97300CE714B /* Extensions */,
 				8D02316820521832007935B2 /* BTMesh.h */,
 				8D02316920521832007935B2 /* Info.plist */,
 			);
@@ -105,7 +200,10 @@
 		8D12B0C720545B88006E8241 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				8D12B0C820545BB1006E8241 /* BTBorder.swift */,
+				751D0C6D20E2A7D400CE714B /* Router */,
+				751D0C6120E2A7D400CE714B /* Border */,
+				751D0C6C20E2A7D400CE714B /* BTConstants.swift */,
+				751D0C6020E2A7D400CE714B /* BTNode.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -113,12 +211,21 @@
 		8D12B0CD20548716006E8241 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8D12B0CF20548717006E8241 /* RxBlocking.framework */,
-				8D12B0D120548717006E8241 /* RxCocoa.framework */,
-				8D12B0CE20548717006E8241 /* RxSwift.framework */,
-				8D12B0D020548717006E8241 /* RxTest.framework */,
+				12B89FE4F827A2764F612B3B /* Pods_BTMesh.framework */,
+				BED31BF75E5B2428F6D0900A /* Pods_BTMeshTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3A0B1E3610657C2E669058E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0F81E23CFF6E766FC307013F /* Pods-BTMesh.debug.xcconfig */,
+				E1CC26A64B9352CB8E62E319 /* Pods-BTMesh.release.xcconfig */,
+				9139663C4020374B29C07D04 /* Pods-BTMeshTests.debug.xcconfig */,
+				161EC2FC5CA564F73EC0D0AA /* Pods-BTMeshTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,10 +246,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D02317920521832007935B2 /* Build configuration list for PBXNativeTarget "BTMesh" */;
 			buildPhases = (
+				CFFA827F145D1310117EA519 /* [CP] Check Pods Manifest.lock */,
 				8D02316020521832007935B2 /* Sources */,
 				8D02316120521832007935B2 /* Frameworks */,
 				8D02316220521832007935B2 /* Headers */,
 				8D02316320521832007935B2 /* Resources */,
+				A1E1F7D3666B080DE00E28D9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -157,9 +266,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D02317C20521832007935B2 /* Build configuration list for PBXNativeTarget "BTMeshTests" */;
 			buildPhases = (
+				D1604E9910411DB71ADE6474 /* [CP] Check Pods Manifest.lock */,
 				8D02316A20521832007935B2 /* Sources */,
 				8D02316B20521832007935B2 /* Frameworks */,
 				8D02316C20521832007935B2 /* Resources */,
+				49737BFF252CDCE1ADC1C4D7 /* [CP] Embed Pods Frameworks */,
+				17B2116F2078D447881B83AE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,7 +295,7 @@
 				TargetAttributes = {
 					8D02316420521832007935B2 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 					8D02316D20521832007935B2 = {
@@ -227,12 +339,116 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17B2116F2078D447881B83AE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BTMeshTests/Pods-BTMeshTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49737BFF252CDCE1ADC1C4D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BTMeshTests/Pods-BTMeshTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BTMeshTests/Pods-BTMeshTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1E1F7D3666B080DE00E28D9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BTMesh/Pods-BTMesh-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFFA827F145D1310117EA519 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BTMesh-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1604E9910411DB71ADE6474 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BTMeshTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8D02316020521832007935B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D12B0C920545BB1006E8241 /* BTBorder.swift in Sources */,
+				751D0C7B20E2A7D400CE714B /* BTRouteItem.swift in Sources */,
+				751D0C7720E2A7D400CE714B /* BTCentralManager+PeripheralDelegate.swift in Sources */,
+				751D0C7620E2A7D400CE714B /* BTCentralManager.swift in Sources */,
+				751D0C7320E2A7D400CE714B /* BTPeripheralManager+PeripheralManagerDelegate.swift in Sources */,
+				751D0C7920E2A7D400CE714B /* BTConstants.swift in Sources */,
+				751D0C7420E2A7D400CE714B /* BTPeripheralManager.swift in Sources */,
+				751D0C8120E2A94700CE714B /* User.swift in Sources */,
+				751D0C7520E2A7D400CE714B /* BTCentralManager+CentralManagerDelegate.swift in Sources */,
+				751D0C7A20E2A7D400CE714B /* BTRouter.swift in Sources */,
+				751D0C8620E2A97300CE714B /* Date+Extensions.swift in Sources */,
+				751D0C7220E2A7D400CE714B /* BTSerialization.swift in Sources */,
+				751D0C8220E2A94700CE714B /* Sorage.swift in Sources */,
+				751D0C8020E2A94700CE714B /* Message.swift in Sources */,
+				751D0C8720E2A97300CE714B /* Data+Extensions.swift in Sources */,
+				751D0C8D20E2B8B900CE714B /* BTRouterConfig.swift in Sources */,
+				751D0C7120E2A7D400CE714B /* BTIdentifier.swift in Sources */,
+				751D0C7820E2A7D400CE714B /* BTBorder.swift in Sources */,
+				751D0C7020E2A7D400CE714B /* BTNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +586,7 @@
 		};
 		8D02317A20521832007935B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F81E23CFF6E766FC307013F /* Pods-BTMesh.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -379,7 +596,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -398,6 +614,7 @@
 		};
 		8D02317B20521832007935B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1CC26A64B9352CB8E62E319 /* Pods-BTMesh.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -407,7 +624,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -425,6 +641,7 @@
 		};
 		8D02317D20521832007935B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9139663C4020374B29C07D04 /* Pods-BTMeshTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -440,6 +657,7 @@
 		};
 		8D02317E20521832007935B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 161EC2FC5CA564F73EC0D0AA /* Pods-BTMeshTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
