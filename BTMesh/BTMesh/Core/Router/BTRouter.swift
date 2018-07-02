@@ -32,25 +32,9 @@ public class BTRouter {
     
     // MARK: - initialization
     
-//    class func config(border: BTBorderProtocol,
-//                      storage: BTStorageProtocol,
-//                      service_ID: String,
-//                      message_RX_ID: String,
-//                      identification_ID: String,
-//                      route_update_RX_ID: String){
-//        BTRouter.config.border = border
-//        BTRouter.config.storage = storage
-//        
-//        BTRouter.config.service_ID = service_ID
-//        BTRouter.config.message_RX_ID = message_RX_ID
-//        BTRouter.config.identification_ID = identification_ID
-//        BTRouter.config.route_update_RX_ID = route_update_RX_ID
-//    }
-    
     init() {
         guard   let border = BTRouter.config.border,
                 let storage = BTRouter.config.storage,
-            
                 let service_ID = BTRouter.config.service_ID,
                 let message_RX_ID = BTRouter.config.message_RX_ID,
                 let identification_ID = BTRouter.config.identification_ID,
@@ -60,7 +44,6 @@ public class BTRouter {
         
         self.border = border
         self.storage = storage
-        
         BTServiceProperties.BTMESH_SERVICE_UUID = CBUUID(string: service_ID)
         BTServiceProperties.Characteristics.Message_RX.UUID = CBUUID(string: message_RX_ID)
         BTServiceProperties.Characteristics.Identification.UUID = CBUUID(string: identification_ID)
@@ -84,12 +67,10 @@ public class BTRouter {
             if item.targetNodeIdentifier == message.receiver.node.identifier {
                 if let user = userEscapeForRouteItem(item: item) {
                     border.sendMessage(message: message, escapeNode: user.node)
+                    return
                 }
             }
         }
-        
-        //-------------------------------------
-//        border.sendMessage(message: message)
     }
     
     // MARK: - Private methods
@@ -116,21 +97,12 @@ public class BTRouter {
 
         //
         border.rx_message.subscribe(onNext: { [weak self] message in
-            
             guard let weakSelf = self else { return }
             
             if message.receiver.node.identifier == weakSelf.storage.currentUser?.node.identifier {
                 weakSelf._rx_message.onNext(message)
             } else {
-                
-                ///----- Add a stamp to show routung
-                let stampedText = message.text + " (routed by \(weakSelf.storage.currentUser?.name ?? "-"))"
-                let stampedMessage = BTMessage(text: stampedText,
-                                             date: message.date,
-                                             sender: message.sender,
-                                             receiver: message.receiver)
-                
-                weakSelf.sendMessage(message: stampedMessage)
+                weakSelf.addStampAndResend(message)
             }
             
             debugPrint("---------------------------------------------------")
@@ -138,8 +110,6 @@ public class BTRouter {
             debugPrint("To: \(message.receiver.name)")
             debugPrint("Message: \(message.text)")
             debugPrint("---------------------------------------------------")
-            
-            
         }).disposed(by: bag)
 
         //
@@ -153,51 +123,46 @@ public class BTRouter {
         }).disposed(by: bag)
     }
     
+    private func addStampAndResend(_ message: (BTMessage)) {
+        let stampedText = message.text + " (routed by \(storage.currentUser?.name ?? "-"))"
+        let stampedMessage = BTMessage(text: stampedText,
+                                       date: message.date,
+                                       sender: message.sender,
+                                       receiver: message.receiver)
+        sendMessage(message: stampedMessage)
+    }
+    
     private func addUserWith(node: BTNode) {
+        guard   let currentUser = storage.currentUser,
+                let subItems = try? node.visibleNodeItems.value() else { return }
         
-//        guard let users = try? storage.users.value() else { return }
-//        for user in users {
-//            if user.node.identifier == node.identifier {
-////                user = User(node: node)
-//                storage.removeUser(user: user)
-//                storage.addUser(user: User(node: node))
-////                return
-//            }
-//        }
-        
-        guard let currentUser = storage.currentUser, let items = try? node.visibleNodeItems.value() else { return }
         let user = BTUser(node: node)
         storage.addUser(user: user)
         
         // add the node itself here
-        if node.RSSI != BTServiceProperties.BTMESH_MINIMUM_RSSI {
-            let routeItem = BTRouteItem(targetNodeIdentifier: node.identifier, escapeNodeIdentifier: currentUser.node.identifier, targetRssi: node.RSSI, escapeRssi: node.RSSI, targetName: node.name)
-            print(node.RSSI)
-            currentUser.node.addVisibleNodeItem(item: routeItem)
-        }
+        guard node.RSSI != BTServiceProperties.BTMESH_MINIMUM_RSSI else { return }
         
-         // add node's sub items
-        for item in items {
-            
-            // ********************
+        let routeItem = BTRouteItem(targetNodeIdentifier: node.identifier,
+                                    escapeNodeIdentifier: currentUser.node.identifier,
+                                    targetRssi: node.RSSI,
+                                    escapeRssi: node.RSSI,
+                                    targetName: node.name)
+        
+        currentUser.node.addVisibleNodeItem(item: routeItem)
+        addSubItems(subItems, currentUser)
+        debugPrint("Storage added: \(user.name), RSSI: \(node.RSSI)")
+    }
+    
+    private func addSubItems(_ subItems: [BTRouteItem], _ currentUser: BTUser) {
+        for item in subItems {
             if newItemShouldBeAdded(item: item) {
                 currentUser.node.addVisibleNodeItem(item: item)
             }
         }
-        debugPrint("Storage added: \(user.name)")
-        
-        /// fake data ///
-//        let item1 = BTRouteItem(targetNodeIdentifier: "lala1", escapeNodeIdentifier: "eu mesmo", targetRssi: -1, escapeRssi: -1, targetName: "Chumbalumba")
-//        let item2 = BTRouteItem(targetNodeIdentifier: "lala2", escapeNodeIdentifier: "hahaha", targetRssi: -1, escapeRssi: -1, targetName: "ElCamilo")
-//        let item3 = BTRouteItem(targetNodeIdentifier: "lala3", escapeNodeIdentifier: "mais um ", targetRssi: -1, escapeRssi: -1, targetName: "Tim Maia")
-//        currentUser.node.addVisibleNodeItem(item: item1)
-//        currentUser.node.addVisibleNodeItem(item: item2)
-//        currentUser.node.addVisibleNodeItem(item: item3)
-        /// fake data ///
     }
+
     
-    // ********************
-    
+    // ******************** to do
     private func newItemShouldBeAdded(item: BTRouteItem) -> Bool { // or updated
 //        guard let currentUser = storage.currentUser, let currentItems = try? currentUser.node.visibleNodeItems.value() else { return false }
 //        
@@ -205,12 +170,8 @@ public class BTRouter {
 //            guard item.targetNodeIdentifier == currentItem.targetNodeIdentifier else { continue }
 //            if item.targetRssi > currentItem.targetRssi
 //        }
-        
-        // ???????????????????????????
-        
         return true
     }
-    
     // ********************
     
     private func removeUserWith(node: BTNode) {
@@ -249,7 +210,6 @@ public class BTRouter {
     
     // todo
     // verify if a node goes down, what happens?
-
     private func updateUserVisibleNodes(items: [BTRouteItem]) {
         guard let currentUser = storage.currentUser else { return }
         guard var visibleItems = try? currentUser.node.visibleNodeItems.value() else { return }
@@ -269,7 +229,6 @@ public class BTRouter {
     }
     
     // todo
-
     private func updateUserRssiFor(node: BTNode, RSSI: NSNumber) {
         node.RSSI = RSSI.intValue
         debugPrint("Updated RSSI: \(RSSI) for node: \(node.identifier)")
@@ -297,7 +256,7 @@ public class BTRouter {
     }
 }
 
-// MARK: - Extensions - routing
+// MARK: - Extensions - Routing
 
 extension BTRouter {
     func escapeForUser(user: BTUser) -> BTUser? {

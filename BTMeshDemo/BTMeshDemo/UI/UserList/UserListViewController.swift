@@ -27,14 +27,7 @@ class UserListViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationItem.setHidesBackButton(true, animated: true)
-        
-        tableView.estimatedRowHeight = 88.0
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.tableFooterView = UIView(frame: .zero)
-        
-        self.title = "Users" // Storage.shared.currentUser?.name
+        setupVisuals()
         setupRx()
     }
     
@@ -47,6 +40,16 @@ class UserListViewController: BaseViewController {
     }
     
     // MARK: - Private methods
+    
+    private func setupVisuals() {
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        tableView.estimatedRowHeight = 88.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView(frame: .zero)
+        
+        self.title = "Users"
+    }
     
     private func goToUser(user: BTUser) {
         debugPrint("Go to user: \(user.name)")

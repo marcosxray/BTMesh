@@ -12,11 +12,12 @@ import RxSwift
 
 // MARK: - Class
 
-class BTPeripheralManager: NSObject {
+public class BTPeripheralManager: NSObject {
     
     // MARK: - Public properties
     
     public static let shared = BTPeripheralManager()
+    static var config: BTPeripheralManagerConfig?
     
     // MARK: - Internal properties
     
@@ -30,6 +31,7 @@ class BTPeripheralManager: NSObject {
     internal var currentState = BehaviorSubject<CBManagerState>(value: .unknown)
     internal var messageDataCache: Data?
     internal var routeDataCache: Data?
+    internal var storage: BTStorageProtocol!
     
     private var bag = DisposeBag()
     private var node: BTNode?
@@ -41,6 +43,12 @@ class BTPeripheralManager: NSObject {
     
     override private init() {
         super.init()
+        
+        guard let storage = BTPeripheralManager.config?.storage else {
+            fatalError("You MUST call config before accessing BTCentralManager!")
+        }
+        
+        self.storage = storage
         manager = CBPeripheralManager(delegate: self, queue: DispatchQueue.main)
     }
     

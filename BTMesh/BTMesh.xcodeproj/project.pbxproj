@@ -19,14 +19,22 @@
 		751D0C7920E2A7D400CE714B /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6C20E2A7D400CE714B /* BTConstants.swift */; };
 		751D0C7A20E2A7D400CE714B /* BTRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6E20E2A7D400CE714B /* BTRouter.swift */; };
 		751D0C7B20E2A7D400CE714B /* BTRouteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C6F20E2A7D400CE714B /* BTRouteItem.swift */; };
-		751D0C8020E2A94700CE714B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C7D20E2A94700CE714B /* Message.swift */; };
-		751D0C8120E2A94700CE714B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C7E20E2A94700CE714B /* User.swift */; };
-		751D0C8220E2A94700CE714B /* Sorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C7F20E2A94700CE714B /* Sorage.swift */; };
 		751D0C8620E2A97300CE714B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C8420E2A97300CE714B /* Date+Extensions.swift */; };
 		751D0C8720E2A97300CE714B /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C8520E2A97300CE714B /* Data+Extensions.swift */; };
 		751D0C8D20E2B8B900CE714B /* BTRouterConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C8C20E2B8B900CE714B /* BTRouterConfig.swift */; };
 		8D02316F20521832007935B2 /* BTMesh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D02316520521832007935B2 /* BTMesh.framework */; };
 		8D02317620521832007935B2 /* BTMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D02316820521832007935B2 /* BTMesh.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D1D797920E840020044E6E4 /* BTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D797620E840020044E6E4 /* BTUser.swift */; };
+		8D1D797A20E840020044E6E4 /* BTMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D797720E840020044E6E4 /* BTMessage.swift */; };
+		8D1D797B20E840020044E6E4 /* BTSorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D797820E840020044E6E4 /* BTSorage.swift */; };
+		8D1D797E20E840400044E6E4 /* BTRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D797D20E840400044E6E4 /* BTRouterTests.swift */; };
+		8D1D798420E85F160044E6E4 /* NodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D798120E85F160044E6E4 /* NodeFactory.swift */; };
+		8D1D798520E85F160044E6E4 /* NodeParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D798220E85F160044E6E4 /* NodeParameters.swift */; };
+		8D1D798B20E950260044E6E4 /* BorderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D798A20E950260044E6E4 /* BorderMock.swift */; };
+		8D1D798D20E950360044E6E4 /* StorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D798C20E950360044E6E4 /* StorageMock.swift */; };
+		8D1D798F20E954040044E6E4 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D798E20E954040044E6E4 /* UserFactory.swift */; };
+		8DE9EC6020E9BBF100C14174 /* BTCentralManagerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE9EC5F20E9BBF100C14174 /* BTCentralManagerConfig.swift */; };
+		8DE9EC6220E9C77900C14174 /* BTPeripheralManagerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE9EC6120E9C77900C14174 /* BTPeripheralManagerConfig.swift */; };
 		9D9323287FABF5D671FA86FE /* Pods_BTMesh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B89FE4F827A2764F612B3B /* Pods_BTMesh.framework */; };
 		C60732A29CE1EDF1980C1836 /* Pods_BTMeshTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED31BF75E5B2428F6D0900A /* Pods_BTMeshTests.framework */; };
 /* End PBXBuildFile section */
@@ -57,9 +65,6 @@
 		751D0C6C20E2A7D400CE714B /* BTConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConstants.swift; sourceTree = "<group>"; };
 		751D0C6E20E2A7D400CE714B /* BTRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTRouter.swift; sourceTree = "<group>"; };
 		751D0C6F20E2A7D400CE714B /* BTRouteItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTRouteItem.swift; sourceTree = "<group>"; };
-		751D0C7D20E2A94700CE714B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		751D0C7E20E2A94700CE714B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		751D0C7F20E2A94700CE714B /* Sorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sorage.swift; sourceTree = "<group>"; };
 		751D0C8420E2A97300CE714B /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		751D0C8520E2A97300CE714B /* Data+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 		751D0C8C20E2B8B900CE714B /* BTRouterConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTRouterConfig.swift; sourceTree = "<group>"; };
@@ -68,6 +73,19 @@
 		8D02316920521832007935B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D02316E20521832007935B2 /* BTMeshTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BTMeshTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D02317520521832007935B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1D797620E840020044E6E4 /* BTUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTUser.swift; sourceTree = "<group>"; };
+		8D1D797720E840020044E6E4 /* BTMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTMessage.swift; sourceTree = "<group>"; };
+		8D1D797820E840020044E6E4 /* BTSorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTSorage.swift; sourceTree = "<group>"; };
+		8D1D797C20E8403F0044E6E4 /* BTMeshTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BTMeshTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		8D1D797D20E840400044E6E4 /* BTRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTRouterTests.swift; sourceTree = "<group>"; };
+		8D1D798120E85F160044E6E4 /* NodeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeFactory.swift; sourceTree = "<group>"; };
+		8D1D798220E85F160044E6E4 /* NodeParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeParameters.swift; sourceTree = "<group>"; };
+		8D1D798620E8FBA50044E6E4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8D1D798A20E950260044E6E4 /* BorderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderMock.swift; sourceTree = "<group>"; };
+		8D1D798C20E950360044E6E4 /* StorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageMock.swift; sourceTree = "<group>"; };
+		8D1D798E20E954040044E6E4 /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
+		8DE9EC5F20E9BBF100C14174 /* BTCentralManagerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTCentralManagerConfig.swift; sourceTree = "<group>"; };
+		8DE9EC6120E9C77900C14174 /* BTPeripheralManagerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTPeripheralManagerConfig.swift; sourceTree = "<group>"; };
 		9139663C4020374B29C07D04 /* Pods-BTMeshTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTMeshTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BTMeshTests/Pods-BTMeshTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BED31BF75E5B2428F6D0900A /* Pods_BTMeshTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BTMeshTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CC26A64B9352CB8E62E319 /* Pods-BTMesh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTMesh.release.xcconfig"; path = "Pods/Target Support Files/Pods-BTMesh/Pods-BTMesh.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,11 +115,11 @@
 		751D0C6120E2A7D400CE714B /* Border */ = {
 			isa = PBXGroup;
 			children = (
+				751D0C6B20E2A7D400CE714B /* BTBorder.swift */,
 				751D0C6220E2A7D400CE714B /* BTIdentifier.swift */,
 				751D0C6320E2A7D400CE714B /* BTSerialization.swift */,
 				751D0C6420E2A7D400CE714B /* Peripheral */,
 				751D0C6720E2A7D400CE714B /* Central */,
-				751D0C6B20E2A7D400CE714B /* BTBorder.swift */,
 			);
 			path = Border;
 			sourceTree = "<group>";
@@ -110,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				751D0C6620E2A7D400CE714B /* BTPeripheralManager.swift */,
+				8DE9EC6120E9C77900C14174 /* BTPeripheralManagerConfig.swift */,
 				751D0C6520E2A7D400CE714B /* BTPeripheralManager+PeripheralManagerDelegate.swift */,
 			);
 			path = Peripheral;
@@ -119,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				751D0C6920E2A7D400CE714B /* BTCentralManager.swift */,
+				8DE9EC5F20E9BBF100C14174 /* BTCentralManagerConfig.swift */,
 				751D0C6820E2A7D400CE714B /* BTCentralManager+CentralManagerDelegate.swift */,
 				751D0C6A20E2A7D400CE714B /* BTCentralManager+PeripheralDelegate.swift */,
 			);
@@ -138,9 +158,9 @@
 		751D0C7C20E2A94700CE714B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				751D0C7D20E2A94700CE714B /* Message.swift */,
-				751D0C7E20E2A94700CE714B /* User.swift */,
-				751D0C7F20E2A94700CE714B /* Sorage.swift */,
+				8D1D797720E840020044E6E4 /* BTMessage.swift */,
+				8D1D797820E840020044E6E4 /* BTSorage.swift */,
+				8D1D797620E840020044E6E4 /* BTUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,7 +209,11 @@
 		8D02317220521832007935B2 /* BTMeshTests */ = {
 			isa = PBXGroup;
 			children = (
+				8D1D798920E94FD50044E6E4 /* Mocks */,
 				8D02317520521832007935B2 /* Info.plist */,
+				8D1D798020E85F160044E6E4 /* Config */,
+				8D1D797D20E840400044E6E4 /* BTRouterTests.swift */,
+				8D1D797C20E8403F0044E6E4 /* BTMeshTests-Bridging-Header.h */,
 			);
 			path = BTMeshTests;
 			sourceTree = "<group>";
@@ -208,10 +232,30 @@
 		8D12B0CD20548716006E8241 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8D1D798620E8FBA50044E6E4 /* XCTest.framework */,
 				12B89FE4F827A2764F612B3B /* Pods_BTMesh.framework */,
 				BED31BF75E5B2428F6D0900A /* Pods_BTMeshTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8D1D798020E85F160044E6E4 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				8D1D798220E85F160044E6E4 /* NodeParameters.swift */,
+				8D1D798120E85F160044E6E4 /* NodeFactory.swift */,
+				8D1D798E20E954040044E6E4 /* UserFactory.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		8D1D798920E94FD50044E6E4 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8D1D798A20E950260044E6E4 /* BorderMock.swift */,
+				8D1D798C20E950360044E6E4 /* StorageMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		C3A0B1E3610657C2E669058E /* Pods */ = {
@@ -248,7 +292,6 @@
 				8D02316120521832007935B2 /* Frameworks */,
 				8D02316220521832007935B2 /* Headers */,
 				8D02316320521832007935B2 /* Resources */,
-				A1E1F7D3666B080DE00E28D9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,7 +311,6 @@
 				8D02316B20521832007935B2 /* Frameworks */,
 				8D02316C20521832007935B2 /* Resources */,
 				49737BFF252CDCE1ADC1C4D7 /* [CP] Embed Pods Frameworks */,
-				17B2116F2078D447881B83AE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,6 +339,7 @@
 					};
 					8D02316D20521832007935B2 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -337,21 +380,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		17B2116F2078D447881B83AE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BTMeshTests/Pods-BTMeshTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		49737BFF252CDCE1ADC1C4D7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,21 +396,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BTMeshTests/Pods-BTMeshTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A1E1F7D3666B080DE00E28D9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BTMesh/Pods-BTMesh-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CFFA827F145D1310117EA519 /* [CP] Check Pods Manifest.lock */ = {
@@ -431,20 +444,22 @@
 				751D0C7B20E2A7D400CE714B /* BTRouteItem.swift in Sources */,
 				751D0C7720E2A7D400CE714B /* BTCentralManager+PeripheralDelegate.swift in Sources */,
 				751D0C7620E2A7D400CE714B /* BTCentralManager.swift in Sources */,
+				8DE9EC6020E9BBF100C14174 /* BTCentralManagerConfig.swift in Sources */,
 				751D0C7320E2A7D400CE714B /* BTPeripheralManager+PeripheralManagerDelegate.swift in Sources */,
 				751D0C7920E2A7D400CE714B /* BTConstants.swift in Sources */,
 				751D0C7420E2A7D400CE714B /* BTPeripheralManager.swift in Sources */,
-				751D0C8120E2A94700CE714B /* User.swift in Sources */,
 				751D0C7520E2A7D400CE714B /* BTCentralManager+CentralManagerDelegate.swift in Sources */,
 				751D0C7A20E2A7D400CE714B /* BTRouter.swift in Sources */,
+				8D1D797A20E840020044E6E4 /* BTMessage.swift in Sources */,
 				751D0C8620E2A97300CE714B /* Date+Extensions.swift in Sources */,
+				8D1D797920E840020044E6E4 /* BTUser.swift in Sources */,
 				751D0C7220E2A7D400CE714B /* BTSerialization.swift in Sources */,
-				751D0C8220E2A94700CE714B /* Sorage.swift in Sources */,
-				751D0C8020E2A94700CE714B /* Message.swift in Sources */,
 				751D0C8720E2A97300CE714B /* Data+Extensions.swift in Sources */,
 				751D0C8D20E2B8B900CE714B /* BTRouterConfig.swift in Sources */,
 				751D0C7120E2A7D400CE714B /* BTIdentifier.swift in Sources */,
 				751D0C7820E2A7D400CE714B /* BTBorder.swift in Sources */,
+				8DE9EC6220E9C77900C14174 /* BTPeripheralManagerConfig.swift in Sources */,
+				8D1D797B20E840020044E6E4 /* BTSorage.swift in Sources */,
 				751D0C7020E2A7D400CE714B /* BTNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,6 +468,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D1D798420E85F160044E6E4 /* NodeFactory.swift in Sources */,
+				8D1D798F20E954040044E6E4 /* UserFactory.swift in Sources */,
+				8D1D798D20E950360044E6E4 /* StorageMock.swift in Sources */,
+				8D1D798520E85F160044E6E4 /* NodeParameters.swift in Sources */,
+				8D1D797E20E840400044E6E4 /* BTRouterTests.swift in Sources */,
+				8D1D798B20E950260044E6E4 /* BorderMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,12 +661,15 @@
 			baseConfigurationReference = 9139663C4020374B29C07D04 /* Pods-BTMeshTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 254PSF9W29;
 				INFOPLIST_FILE = BTMeshTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xraysoft.btmesh.BTMeshTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BTMeshTests/BTMeshTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -656,12 +680,14 @@
 			baseConfigurationReference = 161EC2FC5CA564F73EC0D0AA /* Pods-BTMeshTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 254PSF9W29;
 				INFOPLIST_FILE = BTMeshTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xraysoft.btmesh.BTMeshTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BTMeshTests/BTMeshTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

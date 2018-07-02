@@ -14,7 +14,7 @@ import RxSwift
 
 extension BTPeripheralManager: CBPeripheralManagerDelegate {
     
-    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
+    public func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
         
         switch peripheral.state {
         case .unknown:
@@ -35,11 +35,11 @@ extension BTPeripheralManager: CBPeripheralManagerDelegate {
         }
     }
     
-    func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
+    public func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
         debugPrint("Advertising did start......: Error: \(String(describing: error?.localizedDescription))")
     }
     
-    func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
+    public func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
         
         for request in requests {
             
@@ -115,7 +115,7 @@ extension BTPeripheralManager {
     
     private func rxRouteInformation(node: BTNode, items: [BTRouteItem]) {
         
-        guard let currentVisibleItems = try? BTStorage.shared.currentUser?.node.visibleNodeItems.value() else { return }
+        guard let currentVisibleItems = try? storage.currentUser?.node.visibleNodeItems.value() else { return }
         guard let visibleItems = currentVisibleItems else { return }
         var modifiedItems: [BTRouteItem] = []
         
@@ -124,7 +124,7 @@ extension BTPeripheralManager {
             item.targetRssi = item.targetRssi + item.escapeRssi
             item.escapeRssi = node.RSSI
             
-            if  item.targetNodeIdentifier != BTStorage.shared.currentUser?.node.identifier &&
+            if  item.targetNodeIdentifier != storage.currentUser?.node.identifier &&
                 item.targetNodeIdentifier != item.escapeNodeIdentifier {
                 
                 if let existingItem = itemForTargetIdentifier(identifier: item.targetNodeIdentifier, items: visibleItems) {

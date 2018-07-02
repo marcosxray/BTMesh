@@ -16,11 +16,11 @@ extension BTCentralManager: CBPeripheralDelegate {
     
     // MARK: - Internal methods
     
-    func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
+    public func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
         debugPrint("Invalidated Services: \(invalidatedServices)")
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+    public func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if let error = error {
             debugPrint("Services ERROR: \(error)")
             return
@@ -40,7 +40,7 @@ extension BTCentralManager: CBPeripheralDelegate {
         }
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+    public func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         if let error = error {
             debugPrint("Characteristics ERROR: \(error)")
             return
@@ -54,14 +54,14 @@ extension BTCentralManager: CBPeripheralDelegate {
         }
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
+    public func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
         if let error = error {
             debugPrint("Characteristics NOTIFICATION ERROR: \(error)")
             return
         }
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+    public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if let error = error {
             debugPrint("Characteristic: \(characteristic.uuid) VALUE ERROR: \(error)")
             return
@@ -71,7 +71,7 @@ extension BTCentralManager: CBPeripheralDelegate {
         updatedValue(for: characteristic, with: peripheral)
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
+    public func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
         if let error = error {
             debugPrint("RSSI VALUE ERROR: \(error)")
             return

@@ -4,10 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>BTMesh.xcscheme</key>
+		<key>BTMeshDemo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>5</integer>
 		</dict>
 	</dict>
 </dict>

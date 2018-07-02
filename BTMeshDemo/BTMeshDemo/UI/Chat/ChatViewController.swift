@@ -27,12 +27,7 @@ class ChatViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.estimatedRowHeight = 88.0
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.tableFooterView = UIView(frame: .zero)
-        
-        self.title = BTStorage.shared.currentUser?.name
+        setupVisuals()
         setupRx()
     }
     
@@ -47,6 +42,14 @@ class ChatViewController: BaseViewController {
     }
     
     // MARK: - Private methods
+    
+    private func setupVisuals() {
+        tableView.estimatedRowHeight = 88.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView(frame: .zero)
+        
+        self.title = BTStorage.shared.currentUser?.name
+    }
     
     private func setupRx() {
         viewModel.dataSource.asObservable().subscribe(onNext: { [weak self] dataSource in

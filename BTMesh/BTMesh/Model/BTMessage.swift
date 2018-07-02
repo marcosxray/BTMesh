@@ -30,6 +30,8 @@ public class BTMessage {
     }
 }
 
+// MARK: - Extensions
+
 extension BTMessage: Equatable {
     public static func == (lhs: BTMessage, rhs: BTMessage) -> Bool {
         return lhs.text == rhs.text

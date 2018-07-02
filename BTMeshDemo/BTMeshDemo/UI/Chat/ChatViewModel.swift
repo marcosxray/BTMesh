@@ -33,7 +33,6 @@ class ChatViewModel {
     // MARK: - Public methods
     
     func sendMessageToAllUsers(text: String) {
-        
         guard let users = try? BTStorage.shared.users.value() else { return }
         for user in users {
             sendMessageToUser(receiver: user, text: text, updatedataSoure: false)
@@ -63,7 +62,6 @@ class ChatViewModel {
     // MARK: - Private methods
     
     private func setupRx() {
-        
         router?.rx_message.subscribe(onNext: { [weak self] message in
             self?.updateDataSource(message: message)
         }).disposed(by: bag)

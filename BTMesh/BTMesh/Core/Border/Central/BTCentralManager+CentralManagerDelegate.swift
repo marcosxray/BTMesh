@@ -16,7 +16,7 @@ extension BTCentralManager: CBCentralManagerDelegate {
     
     // MARK: - Internal methods
     
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+    public func centralManagerDidUpdateState(_ central: CBCentralManager) {
         
         switch central.state {
         case .unknown:
@@ -36,7 +36,7 @@ extension BTCentralManager: CBCentralManagerDelegate {
         currentState.onNext(central.state)
     }
     
-    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+    public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         
         let identifier = peripheral.identifier
         debugPrint("Found -> Name: \(peripheral.name ?? "UNKNOWN NAME"), Identifier (Peripheral): \(identifier)")
@@ -49,7 +49,7 @@ extension BTCentralManager: CBCentralManagerDelegate {
         manager.connect(peripheral, options: nil)
     }
     
-    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+    public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("---> Connected: \(peripheral.identifier)")
         peripheral.delegate = self
         peripheral.discoverServices([BTServiceProperties.BTMESH_SERVICE_UUID])
@@ -58,7 +58,7 @@ extension BTCentralManager: CBCentralManagerDelegate {
         //            self.manager.stopScan()
     }
     
-    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+    public func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         print("Fail to connect: \(peripheral.identifier), error: \(String(describing: error?.localizedDescription))")
         
         if discoveredPeripheralsContais(peripheral: peripheral) {
@@ -67,7 +67,7 @@ extension BTCentralManager: CBCentralManagerDelegate {
         }
     }
     
-    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+    public func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("Disconnected: \(peripheral.identifier), error: \(String(describing: error?.localizedDescription))")
         
         cleanUp(peripheral: peripheral)
