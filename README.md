@@ -11,9 +11,9 @@ pod 'BTMesh', :git => 'https://github.com/marcosxray/BTMesh', :tag => '0.0.7'
 </br></br>
 # Usage
 * Do a "import BTMesh" on your .swift file.
-</br>
+
 * Set BTRouter.config before calling BTRouter singleton (BTRouter.shared), passing identifier strings for the main service, and the 3 basic characteristics (Identification, Route_update and Message):
-</br>
+
 BTRouter.config = BTRouterConfig(service_ID: "UUID",
                                          identification_ID: "UUID",
                                          route_update_RX_ID: "UUID",
