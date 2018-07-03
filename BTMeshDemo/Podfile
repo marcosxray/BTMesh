@@ -7,13 +7,12 @@ target 'BTMeshDemo' do
 
   # Pods for BTMeshDemo
   pod 'RxSwift'
-  # pod 'BTMesh', :git => 'https://github.com/marcosxray/BTMesh', :tag => '0.0.6'
-  pod 'BTMesh', :path => '../'
+  pod 'BTMesh', :git => 'https://github.com/marcosxray/BTMesh', :tag => '0.0.7'
 
   target 'BTMeshDemoTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'BTMesh', :path => '../'
+    pod 'BTMesh', :git => 'https://github.com/marcosxray/BTMesh', :tag => '0.0.7'
   end
 
   target 'BTMeshDemoUITests' do
