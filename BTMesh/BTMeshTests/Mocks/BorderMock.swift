@@ -16,18 +16,6 @@ class BorderMock: BTBorderProtocol {
 
     // MARK: - Public properties
     
-    func fireNewNode(node: BTNode) {
-        _nodeToAddForTesting.onNext(node)
-    }
-    
-    func fireNewMessage(message: BTMessage) {
-        _messageToReceiveForTesting.onNext(message)
-    }
-    
-    func fireNewRouteUpdate(items: [BTRouteItem]) {
-        _routeInfoToReceiveForTesting.onNext(items)
-    }
-    
     var rx_message: Observable<BTMessage> {
         return _messageToReceiveForTesting.asObservable()
     }
@@ -58,6 +46,20 @@ class BorderMock: BTBorderProtocol {
     func start() {}
     func sendMessage(message: BTMessage, escapeNode: BTNode) {}
     func callForRssiUpdate() {}
+    
+    // MARK: - Test methods
+    
+    func fireNewNode(node: BTNode) {
+        _nodeToAddForTesting.onNext(node)
+    }
+    
+    func fireNewMessage(message: BTMessage) {
+        _messageToReceiveForTesting.onNext(message)
+    }
+    
+    func fireNewRouteUpdate(items: [BTRouteItem]) {
+        _routeInfoToReceiveForTesting.onNext(items)
+    }
 }
 
 

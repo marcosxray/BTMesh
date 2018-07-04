@@ -69,7 +69,8 @@ extension BTCentralManager {
     func sendMessage(message: BTMessage, escapeNode: BTNode) {
         guard let peripherals = try? _discoveredPeripherals.value() else { return }
         for peripheral in peripherals {
-            guard let node = BTIdentifier.nodeForPeripheralIdentifier(identifier: peripheral.identifier, storage: storage) else { continue }
+            guard let node = BTIdentifier.nodeForPeripheralIdentifier(identifier: peripheral.identifier,
+                                                                      storage: storage) else { continue }
             
             if  escapeNode.identifier == storage.currentUser?.node.identifier &&
                 message.receiver.node.identifier == node.identifier {

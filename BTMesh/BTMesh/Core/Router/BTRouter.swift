@@ -80,22 +80,22 @@ public class BTRouter {
             self?.addUserWith(node: node)
         }).disposed(by: bag)
         
-        //
+        
         border.nodeToRemove.subscribe(onNext: { [weak self] node in
             self?.removeUserWith(node: node)
         }).disposed(by: bag)
         
-        //
+        
         border.nodeToUpdateRSSI.subscribe(onNext: { [weak self] (node, RSSI) in
             self?.updateUserRssiFor(node: node, RSSI: RSSI)
         }).disposed(by: bag)
 
-        //
+        
         border.rx_routeInformation.subscribe(onNext: { [weak self] items in
             self?.updateUserVisibleNodes(items: items)
         }).disposed(by: bag)
 
-        //
+        
         border.rx_message.subscribe(onNext: { [weak self] message in
             guard let weakSelf = self else { return }
             
@@ -112,7 +112,7 @@ public class BTRouter {
             debugPrint("---------------------------------------------------")
         }).disposed(by: bag)
 
-        //
+        
         guard let currentUser = storage.currentUser else { return }
         currentUser.node.visibleNodeItems.asObservable().subscribe(onNext: { items in
             debugPrint("Current visible nodes: -------------------")
@@ -161,7 +161,6 @@ public class BTRouter {
         }
     }
 
-    
     // ******************** to do
     private func newItemShouldBeAdded(item: BTRouteItem) -> Bool { // or updated
 //        guard let currentUser = storage.currentUser, let currentItems = try? currentUser.node.visibleNodeItems.value() else { return false }

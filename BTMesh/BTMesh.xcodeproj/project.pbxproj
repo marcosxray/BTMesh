@@ -27,7 +27,6 @@
 		8D1D797920E840020044E6E4 /* BTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D797620E840020044E6E4 /* BTUser.swift */; };
 		8D1D797A20E840020044E6E4 /* BTMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D797720E840020044E6E4 /* BTMessage.swift */; };
 		8D1D797B20E840020044E6E4 /* BTSorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D797820E840020044E6E4 /* BTSorage.swift */; };
-		8D1D797E20E840400044E6E4 /* BTRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D797D20E840400044E6E4 /* BTRouterTests.swift */; };
 		8D1D798420E85F160044E6E4 /* NodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D798120E85F160044E6E4 /* NodeFactory.swift */; };
 		8D1D798520E85F160044E6E4 /* NodeParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D798220E85F160044E6E4 /* NodeParameters.swift */; };
 		8D1D798B20E950260044E6E4 /* BorderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D798A20E950260044E6E4 /* BorderMock.swift */; };
@@ -292,6 +291,7 @@
 				8D02316120521832007935B2 /* Frameworks */,
 				8D02316220521832007935B2 /* Headers */,
 				8D02316320521832007935B2 /* Resources */,
+				08FE0525E644351418BE3653 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -311,6 +311,7 @@
 				8D02316B20521832007935B2 /* Frameworks */,
 				8D02316C20521832007935B2 /* Resources */,
 				49737BFF252CDCE1ADC1C4D7 /* [CP] Embed Pods Frameworks */,
+				E25BED4781AFEC45146B5854 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -380,6 +381,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		08FE0525E644351418BE3653 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BTMesh/Pods-BTMesh-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		49737BFF252CDCE1ADC1C4D7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -434,6 +450,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E25BED4781AFEC45146B5854 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BTMeshTests/Pods-BTMeshTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -472,7 +503,6 @@
 				8D1D798F20E954040044E6E4 /* UserFactory.swift in Sources */,
 				8D1D798D20E950360044E6E4 /* StorageMock.swift in Sources */,
 				8D1D798520E85F160044E6E4 /* NodeParameters.swift in Sources */,
-				8D1D797E20E840400044E6E4 /* BTRouterTests.swift in Sources */,
 				8D1D798B20E950260044E6E4 /* BorderMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

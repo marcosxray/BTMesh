@@ -27,10 +27,11 @@ import RxSwift
         self.users.onNext(users)
     }
     
-    public func removeUser(user: BTUser) {
-//        var users = (try? self.users.value()) ?? []
-//        guard let index = users.index(of: user) else { return }
-//        users.remove(at: index)
-//        self.users.onNext(users)
+    public func removeUser(user: BTUser) {}
+    
+    // MARK: - Test methods
+    
+    func fireVisibleItemsChange() {
+        
     }
 }
