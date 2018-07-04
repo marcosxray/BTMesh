@@ -5,7 +5,7 @@ An iOS/Swift framework to create mesh networks over Bluetooth Low Energy(BLE).
 To install using Cocoapods, please do the following:
 </br>
 * Add this line to your Podfile:</br>
-pod 'BTMesh', :git => 'https://github.com/marcosxray/BTMesh', :tag => '0.0.7'
+pod 'BTMesh', :git => 'https://github.com/marcosxray/BTMesh', :tag => '0.0.11'
 </br></br>
 * Run "pod install" command on your project's directory, using a terminal application.
 </br></br>
@@ -27,6 +27,14 @@ BTRouter.config = BTRouterConfig(service_ID: "UUID",
 The demo application shows how to use BTMesh framework in your project:
 </br></br>
 <img src="https://github.com/marcosxray/BTMesh/blob/master/Docs/chat.png" alt="Demo app" width="640">
+</br></br>
+# To-do
+* Make it work when the app is in background.
+* Create a general interface to send and receive any type of data (text, image, sound, etc).
+* Use bandwidth load as a metric for routing decisions.
+* Personalized route table updates. Each node would receive just the information needed.
+* Add data compression.
+* Add data cryptography.
 </br></br>
 # Unit testing
 If you want to know more about BTMesh' <a href="https://github.com/marcosxray/BTMesh/blob/master/Docs/UnitTesting.md">unit tests</a>, please visit the documentation.
