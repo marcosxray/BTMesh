@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BTMesh"
-  s.version      = "0.0.10"
+  s.version      = "0.0.11"
   s.summary      = "A framework to create mesh networks over Bluetooth Low Energy (BLE)."
 
   # This description is used to generate tags and improve search results.
@@ -68,7 +68,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/marcosxray/BTMesh", :tag => "0.0.10" }
+  s.source       = { :git => "https://github.com/marcosxray/BTMesh", :tag => "0.0.11" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

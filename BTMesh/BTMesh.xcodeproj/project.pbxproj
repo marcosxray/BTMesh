@@ -22,6 +22,7 @@
 		751D0C8620E2A97300CE714B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C8420E2A97300CE714B /* Date+Extensions.swift */; };
 		751D0C8720E2A97300CE714B /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C8520E2A97300CE714B /* Data+Extensions.swift */; };
 		751D0C8D20E2B8B900CE714B /* BTRouterConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D0C8C20E2B8B900CE714B /* BTRouterConfig.swift */; };
+		757D235F20ECCEF0006B8FE7 /* BTRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D797D20E840400044E6E4 /* BTRouterTests.swift */; };
 		8D02316F20521832007935B2 /* BTMesh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D02316520521832007935B2 /* BTMesh.framework */; };
 		8D02317620521832007935B2 /* BTMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D02316820521832007935B2 /* BTMesh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D1D797920E840020044E6E4 /* BTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D797620E840020044E6E4 /* BTUser.swift */; };
@@ -499,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				757D235F20ECCEF0006B8FE7 /* BTRouterTests.swift in Sources */,
 				8D1D798420E85F160044E6E4 /* NodeFactory.swift in Sources */,
 				8D1D798F20E954040044E6E4 /* UserFactory.swift in Sources */,
 				8D1D798D20E950360044E6E4 /* StorageMock.swift in Sources */,
